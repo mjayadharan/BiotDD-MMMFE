@@ -1,0 +1,22 @@
+\documentclass[10pt]{report}
+\usepackage{float}
+
+
+\begin{document}
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|} \hline
+cycle & 
+\multicolumn{2}{|c|}{\# gmres} & 
+\multicolumn{2}{|c|}{$ \|z - z_h\|_{L^{\infty}(H_{div})} $} & 
+\multicolumn{2}{|c|}{$ \|p - p_h\|_{L^{\infty}(L^2)} $} & 
+\multicolumn{2}{|c|}{$ \|\sigma - \sigma_h\|_{L^{\infty}(H_{div})} $} & 
+\multicolumn{2}{|c|}{$ \|u - u_h\|_{L^{\infty}(L^2)} $}\\ \hline
+0 & 22 & - & 1.349e+00 & - & 5.999e-02 & - & 5.849e-01 & - & 5.778e-01 & -\\ \hline
+1 & 40 & -0.86 & 5.561e-01 & 1.28 & 2.970e-02 & 1.01 & 2.883e-01 & 1.02 & 2.915e-01 & 0.99\\ \hline
+2 & 75 & -0.91 & 1.616e-01 & 1.78 & 1.479e-02 & 1.01 & 1.425e-01 & 1.02 & 1.460e-01 & 1.00\\ \hline
+3 & 145 & -0.95 & 4.048e-02 & 2.00 & 7.394e-03 & 1.00 & 7.078e-02 & 1.01 & 7.306e-02 & 1.00\\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+\end{document}

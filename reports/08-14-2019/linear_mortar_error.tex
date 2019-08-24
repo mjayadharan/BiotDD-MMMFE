@@ -1,0 +1,26 @@
+\documentclass[10pt]{report}
+\usepackage{float}
+
+
+\begin{document}
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|} \hline
+cycle & 
+\multicolumn{2}{|c|}{\# gmres} & 
+\multicolumn{2}{|c|}{$ \|z - z_h\|_{L^{\infty}(H_{div})} $} & 
+\multicolumn{2}{|c|}{$ \|p - p_h\|_{L^{\infty}(L^2)} $} & 
+\multicolumn{2}{|c|}{$ \|\sigma - \sigma_h\|_{L^{\infty}(H_{div})} $} & 
+\multicolumn{2}{|c|}{$ \|u - u_h\|_{L^{\infty}(L^2)} $} & 
+\multicolumn{2}{|c|}{$ \|u - \lambda_u_H\|_{d_H} $} & 
+\multicolumn{2}{|c|}{$ \|p - \lambda_p_H\|_{d_H} $} & 
+\multicolumn{2}{|c|}{$ \|(u,p) - \lambda_H\|_{d_H} $}\\ \hline
+0 & 22 & - & 3.569e+00 & - & 5.999e-02 & - & 5.944e-01 & - & 5.778e-01 & - & 1.733e-02 & - & 1.647e-02 & - & 1.683e-02 & -\\ \hline
+1 & 40 & -0.86 & 3.325e+00 & 0.10 & 2.970e-02 & 1.01 & 2.981e-01 & 1.00 & 2.915e-01 & 0.99 & 4.778e-03 & 1.86 & 9.754e-03 & 0.76 & 8.340e-03 & 1.01\\ \hline
+2 & 75 & -0.91 & 1.831e+00 & 0.86 & 1.479e-02 & 1.01 & 1.487e-01 & 1.00 & 1.460e-01 & 1.00 & 1.235e-03 & 1.95 & 5.179e-03 & 0.91 & 4.277e-03 & 0.96\\ \hline
+3 & 145 & -0.95 & 7.578e-01 & 1.27 & 7.394e-03 & 1.00 & 7.419e-02 & 1.00 & 7.306e-02 & 1.00 & 3.415e-04 & 1.85 & 2.554e-03 & 1.02 & 2.081e-03 & 1.04\\ \hline
+4 & 283 & -0.96 & 2.842e-01 & 1.41 & 3.697e-03 & 1.00 & 3.705e-02 & 1.00 & 3.653e-02 & 1.00 & 1.111e-04 & 1.62 & 1.262e-03 & 1.02 & 1.015e-03 & 1.04\\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+\end{document}

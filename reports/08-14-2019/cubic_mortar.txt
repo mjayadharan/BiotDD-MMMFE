@@ -1,0 +1,478 @@
+
+
+ Total number of processes is 4
+
+Mortar mesh has 1 cells
+Making grid and DOFs...
+
+ split_flag value is 0
+N stress dofs: 80
+N flux dofs: 40
+Projecting the initial conditions...
+Assembling system...
+
+Starting GMRES iterations, time t=0.001s...
+  ...factorized...
+
+
+ r_norm is 
+
+4070.96
+
+
+  GMRES converges in 42 iterations!
+ and residual is2.21269e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.002s...
+
+
+ r_norm is 
+
+4075.03
+
+
+  GMRES converges in 42 iterations!
+ and residual is1.99231e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.003s...
+
+
+ r_norm is 
+
+4079.1
+
+
+  GMRES converges in 42 iterations!
+ and residual is1.86022e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.004s...
+
+
+ r_norm is 
+
+4083.18
+
+
+  GMRES converges in 42 iterations!
+ and residual is1.77937e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.005s...
+
+
+ r_norm is 
+
+4087.26
+
+
+  GMRES converges in 42 iterations!
+ and residual is1.72863e-13
+finished local_gmres
+
+
++---------------------------------------------+------------+------------+
+| Total wallclock time elapsed since start    |      4.62s |            |
+|                                             |            |            |
+| Section                         | no. calls |  wall time | % of total |
++---------------------------------+-----------+------------+------------+
+| Assemble RHS bar                |         5 |   0.00493s |      0.11% |
+| Assemble RHS star               |       215 |     0.044s |      0.95% |
+| Assemble system                 |         1 |   0.00467s |       0.1% |
+| Compute errors                  |         5 |     0.198s |       4.3% |
+| Get interface DoFs              |         1 |  6.56e-06s |         0% |
+| Local GMRES                     |         5 |      4.14s |        90% |
+| Make grid and DoFs              |         1 |   0.00403s |         0% |
+| Output results                  |         6 |   0.00438s |         0% |
+| Solve bar                       |         5 |    0.0668s |       1.4% |
+| Solve star                      |       225 |    0.0325s |       0.7% |
++---------------------------------+-----------+------------+------------+
+
+Mortar mesh has 4 cells
+Making grid and DOFs...
+
+ split_flag value is 0
+N stress dofs: 288
+N flux dofs: 144
+Projecting the initial conditions...
+Assembling system...
+
+Starting GMRES iterations, time t=0.001s...
+  ...factorized...
+
+
+ r_norm is 
+
+4144.16
+
+
+  GMRES converges in 73 iterations!
+ and residual is4.84654e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.002s...
+
+
+ r_norm is 
+
+4148.3
+
+
+  GMRES converges in 73 iterations!
+ and residual is4.84074e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.003s...
+
+
+ r_norm is 
+
+4152.45
+
+
+  GMRES converges in 73 iterations!
+ and residual is4.83583e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.004s...
+
+
+ r_norm is 
+
+4156.6
+
+
+  GMRES converges in 73 iterations!
+ and residual is4.83099e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.005s...
+
+
+ r_norm is 
+
+4160.76
+
+
+  GMRES converges in 73 iterations!
+ and residual is4.8262e-13
+finished local_gmres
+
+
++---------------------------------------------+------------+------------+
+| Total wallclock time elapsed since start    |      15.4s |            |
+|                                             |            |            |
+| Section                         | no. calls |  wall time | % of total |
++---------------------------------+-----------+------------+------------+
+| Assemble RHS bar                |         5 |    0.0107s |         0% |
+| Assemble RHS star               |       370 |     0.149s |      0.96% |
+| Assemble system                 |         1 |    0.0088s |         0% |
+| Compute errors                  |         5 |     0.397s |       2.6% |
+| Get interface DoFs              |         1 |  6.53e-06s |         0% |
+| Local GMRES                     |         5 |        15s |        97% |
+| Make grid and DoFs              |         1 |  0.000822s |         0% |
+| Output results                  |         6 |   0.00612s |         0% |
+| Solve bar                       |         5 |     0.087s |      0.56% |
+| Solve star                      |       380 |     0.288s |       1.9% |
++---------------------------------+-----------+------------+------------+
+
+Mortar mesh has 16 cells
+Making grid and DOFs...
+
+ split_flag value is 0
+N stress dofs: 1088
+N flux dofs: 544
+Projecting the initial conditions...
+Assembling system...
+
+Starting GMRES iterations, time t=0.001s...
+  ...factorized...
+
+
+ r_norm is 
+
+4181.37
+
+
+  GMRES converges in 116 iterations!
+ and residual is9.02974e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.002s...
+
+
+ r_norm is 
+
+4185.55
+
+
+  GMRES converges in 116 iterations!
+ and residual is9.02063e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.003s...
+
+
+ r_norm is 
+
+4189.74
+
+
+  GMRES converges in 116 iterations!
+ and residual is9.0113e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.004s...
+
+
+ r_norm is 
+
+4193.93
+
+
+  GMRES converges in 116 iterations!
+ and residual is9.00252e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.005s...
+
+
+ r_norm is 
+
+4198.13
+
+
+  GMRES converges in 116 iterations!
+ and residual is8.99325e-13
+finished local_gmres
+
+
++---------------------------------------------+------------+------------+
+| Total wallclock time elapsed since start    |      55.9s |            |
+|                                             |            |            |
+| Section                         | no. calls |  wall time | % of total |
++---------------------------------+-----------+------------+------------+
+| Assemble RHS bar                |         5 |    0.0304s |         0% |
+| Assemble RHS star               |       585 |     0.453s |      0.81% |
+| Assemble system                 |         1 |    0.0363s |         0% |
+| Compute errors                  |         5 |      1.03s |       1.8% |
+| Get interface DoFs              |         1 |  1.04e-05s |         0% |
+| Local GMRES                     |         5 |      54.7s |        98% |
+| Make grid and DoFs              |         1 |   0.00365s |         0% |
+| Output results                  |         6 |    0.0218s |         0% |
+| Solve bar                       |         5 |      0.25s |      0.45% |
+| Solve star                      |       595 |       2.5s |       4.5% |
++---------------------------------+-----------+------------+------------+
+
+Mortar mesh has 64 cells
+Making grid and DOFs...
+
+ split_flag value is 0
+N stress dofs: 4224
+N flux dofs: 2112
+Projecting the initial conditions...
+Assembling system...
+
+Starting GMRES iterations, time t=0.001s...
+  ...factorized...
+
+
+ r_norm is 
+
+4194.07
+
+
+  GMRES converges in 207 iterations!
+ and residual is9.98521e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.002s...
+
+
+ r_norm is 
+
+4198.27
+
+
+  GMRES converges in 207 iterations!
+ and residual is9.97058e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.003s...
+
+
+ r_norm is 
+
+4202.47
+
+
+  GMRES converges in 207 iterations!
+ and residual is9.96156e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.004s...
+
+
+ r_norm is 
+
+4206.67
+
+
+  GMRES converges in 207 iterations!
+ and residual is9.95185e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.005s...
+
+
+ r_norm is 
+
+4210.88
+
+
+  GMRES converges in 207 iterations!
+ and residual is9.93947e-13
+finished local_gmres
+
+
++---------------------------------------------+------------+------------+
+| Total wallclock time elapsed since start    |       285s |            |
+|                                             |            |            |
+| Section                         | no. calls |  wall time | % of total |
++---------------------------------+-----------+------------+------------+
+| Assemble RHS bar                |         5 |     0.133s |         0% |
+| Assemble RHS star               |      1040 |      1.68s |      0.59% |
+| Assemble system                 |         1 |     0.134s |         0% |
+| Compute errors                  |         5 |      6.33s |       2.2% |
+| Get interface DoFs              |         1 |  1.42e-05s |         0% |
+| Local GMRES                     |         5 |       279s |        98% |
+| Make grid and DoFs              |         1 |     0.013s |         0% |
+| Output results                  |         6 |     0.172s |         0% |
+| Solve bar                       |         5 |     0.857s |       0.3% |
+| Solve star                      |      1050 |      27.4s |       9.6% |
++---------------------------------+-----------+------------+------------+
+
+Mortar mesh has 256 cells
+Making grid and DOFs...
+
+ split_flag value is 0
+N stress dofs: 16640
+N flux dofs: 8320
+Projecting the initial conditions...
+Assembling system...
+
+Starting GMRES iterations, time t=0.001s...
+  ...factorized...
+
+
+ r_norm is 
+
+4198.77
+
+
+  GMRES converges in 371 iterations!
+ and residual is9.86235e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.002s...
+
+
+ r_norm is 
+
+4202.97
+
+
+  GMRES converges in 386 iterations!
+ and residual is9.99458e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.003s...
+
+
+ r_norm is 
+
+4207.17
+
+
+  GMRES converges in 371 iterations!
+ and residual is9.89594e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.004s...
+
+
+ r_norm is 
+
+4211.38
+
+
+  GMRES converges in 370 iterations!
+ and residual is9.93848e-13
+finished local_gmres
+
+Starting GMRES iterations, time t=0.005s...
+
+
+ r_norm is 
+
+4215.6
+
+
+  GMRES converges in 371 iterations!
+ and residual is9.69655e-13
+finished local_gmres
+
+cycle  # GMRES  Velocity,L8-Hdiv Pressure,L8-L2 Stress,L8-Hdiv  Displ,L8-L2    Lambda,Elast   Lambda,Darcy   Lambda,Biot   
+    0  42     - 2.102e+00      - 5.919e-02    - 5.784e-01    - 5.785e-01    - 1.491e-02    - 1.198e-02    - 1.318e-02    - 
+    1  73 -0.80 1.060e+00   0.99 2.958e-02 1.00 2.943e-01 0.98 2.916e-01 0.99 3.729e-03 2.00 6.423e-03 0.90 5.669e-03 1.22 
+    2 116 -0.67 4.568e-01   1.21 1.479e-02 1.00 1.478e-01 0.99 1.461e-01 1.00 9.701e-04 1.94 3.260e-03 0.98 2.745e-03 1.05 
+    3 207 -0.84 1.881e-01   1.28 7.394e-03 1.00 7.396e-02 1.00 7.306e-02 1.00 2.629e-04 1.88 1.661e-03 0.97 1.371e-03 1.00 
+    4 371 -0.84 8.338e-02   1.17 3.697e-03 1.00 3.699e-02 1.00 3.653e-02 1.00 9.007e-05 1.55 8.768e-04 0.92 7.131e-04 0.94 
+
+
++---------------------------------------------+------------+------------+
+| Total wallclock time elapsed since start    |   1.6e+03s |            |
+|                                             |            |            |
+| Section                         | no. calls |  wall time | % of total |
++---------------------------------+-----------+------------+------------+
+| Assemble RHS bar                |         5 |     0.441s |         0% |
+| Assemble RHS star               |      1874 |      5.75s |      0.36% |
+| Assemble system                 |         1 |     0.515s |         0% |
+| Compute errors                  |         5 |      16.3s |         1% |
+| Get interface DoFs              |         1 |  1.93e-05s |         0% |
+| Local GMRES                     |         5 |  1.58e+03s |        99% |
+| Make grid and DoFs              |         1 |    0.0591s |         0% |
+| Output results                  |         6 |     0.898s |         0% |
+| Solve bar                       |         5 |       4.6s |      0.29% |
+| Solve star                      |      1884 |       226s |        14% |
++---------------------------------+-----------+------------+------------+
+
+
+
++---------------------------------------------+------------+------------+
+| Total wallclock time elapsed since start    |  8.48e-05s |            |
+|                                             |            |            |
+| Section                         | no. calls |  wall time | % of total |
++---------------------------------+-----------+------------+------------+
++---------------------------------+-----------+------------+------------+
+
+
+
++---------------------------------------------+------------+------------+
+| Total wallclock time elapsed since start    |  1.96e+03s |            |
+|                                             |            |            |
+| Section                         | no. calls |  wall time | % of total |
++---------------------------------+-----------+------------+------------+
++---------------------------------+-----------+------------+------------+
+
+
+
++---------------------------------------------+------------+------------+
+| Total wallclock time elapsed since start    |  1.96e+03s |            |
+|                                             |            |            |
+| Section                         | no. calls |  wall time | % of total |
++---------------------------------+-----------+------------+------------+
++---------------------------------+-----------+------------+------------+
+
