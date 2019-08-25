@@ -1,0 +1,589 @@
+%% Created by Manu Jayadharan for BiotDD 07-08-2019 
+
+
+
+%Citations for mixed formulation for Biot
+@article{lee2016robust,
+  title={Robust error analysis of coupled mixed methods for Biots consolidation model},
+  author={Lee, Jeonghun J},
+  fjournal={Journal of Scientific Computing},
+  journal={J. Sci. Comput.},
+  volume={69},
+  number={2},
+  pages={610--632},
+  year={2016},
+  publisher={Springer}
+}
+
+%Citation for inf-sup stable Elasticity triplets
+@article {stenberg1988family,
+    AUTHOR = {Stenberg, Rolf},
+     TITLE = {A family of mixed finite elements for the elasticity problem},
+   JOURNAL = {Numer. Math.},
+  FJOURNAL = {Numerische Mathematik},
+    VOLUME = {53},
+      YEAR = {1988},
+    NUMBER = {5},
+     PAGES = {513--538},
+      ISSN = {0029-599X},
+   MRCLASS = {65N30 (73-08 73C02)},
+  MRNUMBER = {954768},
+MRREVIEWER = {W. F. Ames},
+       _URL = {https://doi.org/10.1007/BF01397550},
+}
+
+
+@article {Amara-Thomas,
+    AUTHOR = {Amara, M. and Thomas, J. M.},
+     TITLE = {Equilibrium finite elements for the linear elastic problem},
+   JOURNAL = {Numer. Math.},
+  FJOURNAL = {Numerische Mathematik},
+    VOLUME = {33},
+      YEAR = {1979},
+    NUMBER = {4},
+     PAGES = {367--383},
+      ISSN = {0029-599X},
+   MRCLASS = {65N30 (73K25)},
+  MRNUMBER = {553347},
+MRREVIEWER = {Ranbir S. Sandhu},
+       _DOI = {10.1007/BF01399320},
+       _URL = {http://dx.doi.org/10.1007/BF01399320},
+}
+
+@article {arnold2007mixed,
+    AUTHOR = {Arnold, Douglas N. and Falk, Richard S. and Winther, Ragnar},
+     TITLE = {Mixed finite element methods for linear elasticity with weakly
+              imposed symmetry},
+   JOURNAL = {Math. Comp.},
+  FJOURNAL = {Mathematics of Computation},
+    VOLUME = {76},
+      YEAR = {2007},
+    NUMBER = {260},
+     PAGES = {1699--1723},
+      ISSN = {0025-5718},
+   MRCLASS = {74S05 (65N30 74B05 74G15)},
+  MRNUMBER = {2336264},
+       _URL = {https://doi.org/10.1090/S0025-5718-07-01998-9},
+}
+
+@article {Awanou-rect-weak,
+    AUTHOR = {Awanou, Gerard},
+     TITLE = {Rectangular mixed elements for elasticity with weakly imposed
+              symmetry condition},
+   JOURNAL = {Adv. Comput. Math.},
+  FJOURNAL = {Advances in Computational Mathematics},
+    VOLUME = {38},
+      YEAR = {2013},
+    NUMBER = {2},
+     PAGES = {351--367},
+      ISSN = {1019-7168},
+   MRCLASS = {74S05 (65N30 74B05 74G15)},
+  MRNUMBER = {3019152},
+       _DOI = {10.1007/s10444-011-9240-1},
+       _URL = {http://dx.doi.org/10.1007/s10444-011-9240-1},
+}
+
+@article {ArnAwaQiu,
+    AUTHOR = {Arnold, Douglas N. and Awanou, Gerard and Qiu, Weifeng},
+     TITLE = {Mixed finite elements for elasticity on quadrilateral meshes},
+   JOURNAL = {Adv. Comput. Math.},
+  FJOURNAL = {Advances in Computational Mathematics},
+    VOLUME = {41},
+      YEAR = {2015},
+    NUMBER = {3},
+     PAGES = {553--572},
+      ISSN = {1019-7168},
+   MRCLASS = {74S05 (65N30 74B05)},
+  MRNUMBER = {3357925},
+MRREVIEWER = {Alexandre L. Madureira},
+       _DOI = {10.1007/s10444-014-9376-x},
+       _URL = {http://dx.doi.org/10.1007/s10444-014-9376-x},
+}
+
+@article {cockburn2010new,
+    AUTHOR = {Cockburn, Bernardo and Gopalakrishnan, Jayadeep and Guzm\'an,
+              Johnny},
+     TITLE = {A new elasticity element made for enforcing weak stress
+              symmetry},
+   JOURNAL = {Math. Comp.},
+  FJOURNAL = {Mathematics of Computation},
+    VOLUME = {79},
+      YEAR = {2010},
+    NUMBER = {271},
+     PAGES = {1331--1349},
+      ISSN = {0025-5718},
+   MRCLASS = {65N30 (35L65 74A10 74B05 74S05)},
+  MRNUMBER = {2629995},
+MRREVIEWER = {S\'ebastien J. Boyaval},
+       _URL = {https://doi.org/10.1090/S0025-5718-10-02343-4},
+}
+
+@article {gopalakrishnan2012second,
+    AUTHOR = {Gopalakrishnan, J. and Guzm\'an, J.},
+     TITLE = {A second elasticity element using the matrix bubble},
+   JOURNAL = {IMA J. Numer. Anal.},
+  FJOURNAL = {IMA Journal of Numerical Analysis},
+    VOLUME = {32},
+      YEAR = {2012},
+    NUMBER = {1},
+     PAGES = {352--372},
+      ISSN = {0272-4979},
+   MRCLASS = {74B05 (65N30 74S05)},
+  MRNUMBER = {2875255},
+       _URL = {https://doi.org/10.1093/imanum/drq047},
+}
+
+%Citation for mixed Darcy stable pair
+@book {brezzi1991mixed,
+    AUTHOR = {Brezzi, Franco and Fortin, Michel},
+     TITLE = {Mixed and hybrid finite element methods},
+    SERIES = {Springer Series in Computational Mathematics},
+    VOLUME = {15},
+ PUBLISHER = {Springer-Verlag, New York},
+      YEAR = {1991},
+     PAGES = {x+350},
+      ISBN = {0-387-97582-9},
+   MRCLASS = {65N30 (65-02 73V05 76M10)},
+  MRNUMBER = {1115205},
+MRREVIEWER = {Lubor Malina},
+       _URL = {https://doi.org/10.1007/978-1-4612-3172-1},
+}
+%Citation for DD elasticity non mixed
+@incollection {Klawonn-dd-elast,
+    AUTHOR = {Klawonn, Axel and Widlund, Olof B.},
+     TITLE = {A domain decomposition method with {L}agrange multipliers for
+              linear elasticity},
+ BOOKTITLE = {Eleventh {I}nternational {C}onference on {D}omain
+              {D}ecomposition {M}ethods ({L}ondon, 1998)},
+     PAGES = {49--56},
+ PUBLISHER = {Augsburg},
+      YEAR = {1999},
+   MRCLASS = {65N55},
+  MRNUMBER = {1827408},
+}
+
+@article {Kim-elast-BDDC,
+    AUTHOR = {Kim, Hyea Hyun},
+     TITLE = {A {BDDC} algorithm for mortar discretization of elasticity
+              problems},
+   JOURNAL = {SIAM J. Numer. Anal.},
+  FJOURNAL = {SIAM Journal on Numerical Analysis},
+    VOLUME = {46},
+      YEAR = {2008},
+    NUMBER = {4},
+     PAGES = {2090--2111},
+      ISSN = {0036-1429},
+   MRCLASS = {65N55 (65N30)},
+  MRNUMBER = {2399409 (2009a:65364)},
+MRREVIEWER = {Paola F. Antonietti},
+       _DOI = {10.1137/060649677},
+       _URL = {http://dx.doi.org/10.1137/060649677},
+}
+
+@article {Kim-elast-FETI,
+    AUTHOR = {Kim, Hyea Hyun},
+     TITLE = {A {FETI}-{DP} formulation of three dimensional elasticity
+              problems with mortar discretization},
+   JOURNAL = {SIAM J. Numer. Anal.},
+  FJOURNAL = {SIAM Journal on Numerical Analysis},
+    VOLUME = {46},
+      YEAR = {2008},
+    NUMBER = {5},
+     PAGES = {2346--2370},
+      ISSN = {0036-1429},
+   MRCLASS = {65N30 (65N55 74G15)},
+  MRNUMBER = {2421038 (2009c:65314)},
+MRREVIEWER = {Nicolae Pop},
+       _DOI = {10.1137/060663179},
+       _URL = {http://dx.doi.org/10.1137/060663179},
+}
+
+@article {Hauret-LeTallec,
+    AUTHOR = {Hauret, Patrice and Le Tallec, Patrick},
+     TITLE = {A discontinuous stabilized mortar method for general 3{D}
+              elastic problems},
+   JOURNAL = {Comput. Methods Appl. Mech. Engrg.},
+  FJOURNAL = {Computer Methods in Applied Mechanics and Engineering},
+    VOLUME = {196},
+      YEAR = {2007},
+    NUMBER = {49-52},
+     PAGES = {4881--4900},
+      ISSN = {0045-7825},
+   MRCLASS = {74S05 (65N30 65N55 74H15)},
+  MRNUMBER = {2355734},
+       _DOI = {10.1016/j.cma.2007.06.014},
+       _URL = {http://dx.doi.org/10.1016/j.cma.2007.06.014},
+}
+
+
+%Citation for DD for Mixed formultaion.
+
+%Citation for Elasticity DD with MFE
+@article{eldar_elastdd,
+author = {Khattatov, Eldar and Yotov, Ivan},
+year = {2017},
+month = {11},
+pages = {},
+title = {Domain decomposition and multiscale mortar mixed finite element methods for linear elasticity with weak stress symmetry}
+}
+
+%Citation for DD for coupling of Poroelasticity and elasiticy 
+@article{girault2011domain,
+  title={Domain decomposition for poroelasticity and elasticity with DG jumps and mortars},
+  author={Girault, V and Pencheva, G and Wheeler, Mary F and Wildey, T},
+  fjournal={Mathematical Models and Methods in Applied Sciences},
+  journal={Math. Mod. Meth. Appl. S.},
+  volume={21},
+  number={01},
+  pages={169--213},
+  year={2011},
+  publisher={World Scientific}
+}
+
+@article{FlorezDD,
+author = {Florez, Horacio},
+year = {2018},
+journal={Mathematics},
+month = {08},
+volume={6},
+number={10},
+pages = {187},
+title = {About revisiting Domain Decomposition Methods for Poroelasticity},
+doi = {10.13140/RG.2.2.11800.65285}
+}
+
+%Citation for using DD using NURBS: horacio flroez
+
+@article{HoracioNurbs1,
+author = {Florez, Horacio and Wheeler, Mary},
+year = {2016},
+month = {07},
+pages = {},
+title = {A mortar method based on NURBS for curved interfaces:},
+volume = {310},
+journal = {Computer Methods in Applied Mechanics and Engineering},
+doi = {10.1016/j.cma.2016.07.030}
+}
+
+@inproceedings{HoracioNurbs2,
+author = {Florez, Horacio and Wheeler, Mary and Rodriguez, Adolfo},
+year = {2013},
+month = {02},
+pages = {},
+title = {Domain Decomposition Methods in Geomechanics},
+volume = {2},
+isbn = {9781613992333},
+journal = {Society of Petroleum Engineers - SPE Reservoir Simulation Symposium 2013},
+doi = {10.2118/163674-MS}
+}
+
+%Citation for DD for elliptic problems.
+@inproceedings{glowinski1988domain,
+  title={Domain decomposition and mixed finite element methods for elliptic problems},
+  author={Glowinski, Roland and Wheeler, Mary F},
+  booktitle={First international symposium on domain decomposition methods for partial differential equations},
+  pages={144--172},
+  year={1988}
+}
+
+
+@inproceedings{Cowsar,
+author = {Cowsar, Lawrence and Wheeler, Mary},
+year = {1991},
+month = {01},
+pages = {},
+title = {Parallel Domain Decomposition Method for Mixed Finite Elements for Elliptic Partial Differential Equations}
+}
+
+
+@article {arbogast2000mixed,
+    AUTHOR = {Arbogast, Todd and Cowsar, Lawrence C. and Wheeler, Mary F.
+              and Yotov, Ivan},
+     TITLE = {Mixed finite element methods on nonmatching multiblock grids},
+   JOURNAL = {SIAM J. Numer. Anal.},
+  FJOURNAL = {SIAM Journal on Numerical Analysis},
+    VOLUME = {37},
+      YEAR = {2000},
+    NUMBER = {4},
+     PAGES = {1295--1315},
+      ISSN = {0036-1429},
+   MRCLASS = {65N30},
+  MRNUMBER = {1756426},
+MRREVIEWER = {H. Marcinkowska},
+       _URL = {https://doi.org/10.1137/S0036142996308447},
+}
+
+@article {cowsar1995balancing,
+    AUTHOR = {Cowsar, Lawrence C. and Mandel, Jan and Wheeler, Mary F.},
+     TITLE = {Balancing domain decomposition for mixed finite elements},
+   JOURNAL = {Math. Comp.},
+  FJOURNAL = {Mathematics of Computation},
+    VOLUME = {64},
+      YEAR = {1995},
+    NUMBER = {211},
+     PAGES = {989--1015},
+      ISSN = {0025-5718},
+   MRCLASS = {65N55},
+  MRNUMBER = {1297465},
+MRREVIEWER = {Serge Nicaise},
+       _URL = {https://doi.org/10.2307/2153480},
+}
+
+%Monolithic DD for Biot
+
+@article{GosseletMonoDD,
+author = {Gosselet, Pierre and Chiaruttini, Vincent and Rey, Christian and Feyel, Frederic},
+year = {2012},
+month = {04},
+pages = {},
+title = {A monolithic strategy based on an hybrid domain decomposition method for multiphysic problems. Application to poroelasticity},
+volume = {13},
+journal = {Revue Europeenne des Elements Finis},
+doi = {10.3166/reef.13.523-534}
+}
+
+%split scheme sitations
+
+%Split scheme for Stoke-Biot 
+@Inbook{YiCesmelioglu2016,
+author="Cesmelioglu, Aycil
+and Lee, Hyesuk
+and Quaini, Annalisa
+and Wang, Kening
+and Yi, Son-Young",
+editor="Brenner, Susanne C.",
+title="Optimization-Based Decoupling Algorithms for a Fluid-Poroelastic System",
+bookTitle="Topics in Numerical Partial Differential Equations and Scientific Computing",
+year="2016",
+publisher="Springer New York",
+address="New York, NY",
+pages="79--98",
+doi="10.1007/978-1-4939-6399-7_4",
+url="https://doi.org/10.1007/978-1-4939-6399-7_4"
+}
+
+
+
+%split scheme for Biot problem 
+@article{KimDS2011,
+author = {Kim, Jihoon and Tchelepi, Hamdi and Juanes, R},
+year = {2011},
+month = {06},
+pages = {2094-2116},
+title = {Stability and convergence of sequential methods for coupled flow and geomechanics: Drained and undrained splits},
+volume = {200},
+journal = {Computer Methods in Applied Mechanics and Engineering - comput method appl mech eng},
+doi = {10.1016/j.cma.2011.02.011}
+}
+
+@article{KimFS2011,
+author = {Kim, Jihoon and Tchelepi, Hamdi and Juanes, R},
+year = {2011},
+month = {03},
+pages = {1591-1606},
+title = {Stability and convergence of sequential methods for coupled flow and geomechanics: Fixed-stress and fixed-strain splits},
+volume = {200},
+journal = {Computer Methods in Applied Mechanics and Engineering - comput method appl mech eng},
+doi = {10.1016/j.cma.2010.12.022}
+}
+
+@article{bukacSplit,
+author = {Bukac, Martina and Layton, William and Moraiti, Marina and Tran, Hoang and Trenchea, Catalin},
+year = {2015},
+month = {02},
+pages = {},
+title = {Analysis of Partitioned Methods for the Biot System},
+volume = {31},
+journal = {Numerical Methods for Partial Differential Equations},
+doi = {10.1002/num.21968}
+}
+
+@Article{Mikelic2013,
+author="Mikeli{\'{c}}, Andro
+and Wheeler, Mary F.",
+title="Convergence of iterative coupling for coupled flow and geomechanics",
+journal="Computational Geosciences",
+year="2013",
+month="Jun",
+day="01",
+volume="17",
+number="3",
+pages="455--461",
+issn="1573-1499",
+doi="10.1007/s10596-012-9318-y",
+url="https://doi.org/10.1007/s10596-012-9318-y"
+}
+
+@article{YiSplit,
+author = {Yi, Son-Young and Bean, Maranda},
+year = {2016},
+month = {07},
+pages = {},
+title = {Iteratively coupled solution strategies for a four-field mixed finite element method for poroelasticity},
+journal = {International Journal for Numerical and Analytical Methods in Geomechanics},
+doi = {10.1002/nag.2538}
+}
+%Citations to Radu publications
+
+@inproceedings{RaduFS,
+author = {Elyes, Ahmed and Martin Nordbotten, Jan and Radu, Florin},
+year = {2019},
+month = {01},
+pages = {},
+title = {Adaptive asynchronous time-stepping, stopping criteria, and a posteriori error estimates for fixed-stress iterative schemes for coupled poromechanics problems}
+}
+@article{RaduFS1,
+author = "M. Bause and F.A. Radu and U. Kocher",
+title = {Space-time finite element approximation of the Biot poroelasticity system with iterative coupling},
+journal = "Computer Methods in Applied Mechanics and Engineering",
+volume = "320",
+pages = "745 - 768",
+year = "2017",
+issn = "0045-7825",
+doi = "https://doi.org/10.1016/j.cma.2017.03.017",
+url = "http://www.sciencedirect.com/science/article/pii/S0045782516316164"
+
+}
+
+@article{RaduFS2,
+author = "Manuel Borregales and Kundan Kumar and Florin Adrian Radu and Carmen Rodrigo and Francisco Jose Gaspar",
+title = "A partially parallel-in-time fixed-stress splitting method for Biot's consolidation model",
+journal = "Computers and Mathematics with Applications",
+volume = "77",
+number = "6",
+pages="1466-1478",
+year = "2019",
+note = "7th International Conference on Advanced Computational Methods in Engineering (ACOMEN 2017)",
+issn = "0898-1221",
+doi = "https://doi.org/10.1016/j.camwa.2018.09.005",
+url = "http://www.sciencedirect.com/science/article/pii/S0898122118305091"
+
+}
+
+@article{RaduFS3,
+author = {Storvik, Erlend and Both, Jakub W. and Kumar, Kundan and Nordbotten, Jan M. and Radu, Florin A.},
+title = {On the optimization of the fixed-stress splitting for Biot's equations},
+journal = {International Journal for Numerical Methods in Engineering},
+year = {2019},
+month = {5},
+volume = {0},
+number = {0},
+pages = {},
+doi = {10.1002/nme.6130},
+url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.6130},
+eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/nme.6130}
+}
+
+@article{RaduAnderson,
+author = "Jakub Wiktor Both and Kundan Kumar and Jan Martin Nordbotten and Florin Adrian Radu",
+title = "Anderson accelerated fixed-stress splitting schemes for consolidation of unsaturated porous media",
+journal = "Computers and Mathematics with Applications",
+volume = "77",
+number = "6",
+pages = "1479 - 1502",
+year = "2019",
+note = "7th International Conference on Advanced Computational Methods in Engineering (ACOMEN 2017)",
+issn = "0898-1221",
+doi = "https://doi.org/10.1016/j.camwa.2018.07.033",
+url = "http://www.sciencedirect.com/science/article/pii/S0898122118304048"
+
+}
+
+%Citation for bound on #CG and GMRES iterations
+@book {kelley1995iterative,
+    AUTHOR = {Kelley, C. T.},
+     TITLE = {Iterative methods for linear and nonlinear equations},
+    SERIES = {Frontiers in Applied Mathematics},
+    VOLUME = {16},
+ PUBLISHER = {Society for Industrial and Applied Mathematics,
+              Philadelphia},
+      YEAR = {1995},
+     PAGES = {iv+165},
+      ISBN = {0-89871-352-8},
+   MRCLASS = {65-02 (65Fxx 65Hxx)},
+  MRNUMBER = {1344684},
+MRREVIEWER = {W. Govaerts},
+       _URL = {https://doi.org/10.1137/1.9781611970944},
+}
+
+@Article{IpsenGMRES,
+author="Ipsen, I. C. F.",
+title="Expressions and Bounds for the GMRES Residual",
+journal="BIT Numerical Mathematics",
+year="2000",
+month="Sep",
+day="01",
+volume="40",
+number="3",
+pages="524--535",
+issn="1572-9125",
+doi="10.1023/A:1022371814205",
+url="https://doi.org/10.1023/A:1022371814205"
+}
+
+%Citation specific to example 3(SPE experiment)
+
+@article{kovavcik1999correlation,
+  title={Correlation between Young's modulus and porosity in porous materials},
+  author={Kovacik, J.},
+  journal={J. Mater. Sci. Lett.},
+  fjournal={Journal of materials science letters},
+  volume={18},
+  number={13},
+  pages={1007--1010},
+  year={1999},
+  publisher={Springer}
+}
+
+@book {Toselli-Widlund,
+    AUTHOR = {Toselli, Andrea and Widlund, Olof},
+     TITLE = {Domain decomposition methods---algorithms and theory},
+    SERIES = {Springer Series in Computational Mathematics},
+    VOLUME = {34},
+ PUBLISHER = {Springer-Verlag},
+   ADDRESS = {Berlin},
+      YEAR = {2005},
+     PAGES = {xvi+450},
+      ISBN = {3-540-20696-5},
+   MRCLASS = {65-02 (65N55 74S05 76M10)},
+  MRNUMBER = {2104179 (2005g:65006)},
+}
+@article{DarcyDDCOndition,
+author = {Vassilev, Danail and Wang, Changqing and Yotov, Ivan},
+year = {2014},
+month = {01},
+pages = {264-283},
+title = {Domain decomposition for coupled Stokes and Darcy flows},
+volume = {268},
+journal = {Computer Methods in Applied Mechanics and Engineering},
+doi = {10.1016/j.cma.2013.09.009}
+}
+
+
+%Citation for deal.ii package
+
+@article{dealII90,
+        title   = {The \texttt{deal.II} Library, Version 9.0},
+        author  = {G. Alzetta and D. Arndt and W. Bangerth and V. Boddu and
+                   B. Brands and D. Davydov and R. Gassmoeller and T. Heister and
+                   L. Heltai and K. Kormann and M. Kronbichler and M. Maier and
+                   J.-P. Pelteret and B. Turcksin and D. Wells},
+        journal = {Journal of Numerical Mathematics},
+        year    = {2018},
+        volume  = {26},
+        number  = {4},
+        pages   = {173--183},
+        doi     = {10.1515/jnma-2018-0054}
+      }
+
+@Article{BangerthHartmannKanschat2007,
+        author  = {W. Bangerth and R. Hartmann and G. Kanschat},
+        title   = {{deal.II} -- a General Purpose Object
+                   Oriented Finite Element Library},
+        journal = {ACM Trans. Math. Softw.},
+        year    = {2007},
+        volume  = {33},
+        number  = {4},
+        pages   = {24/1--24/27}
+      }
+

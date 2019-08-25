@@ -286,11 +286,12 @@ For long system of equations to make equations start from left do ams align
 \end_layout
 
 \begin_layout Title
-Biot MMMFE.
+Domain decomposition and partitioning methods for mixed finite element discretiz
+ation of the Biot system of poroelasticity.
 \end_layout
 
 \begin_layout Author
-Manu Jayadharan 
+Manu Jayadharan  
 \begin_inset space ~
 \end_inset
 

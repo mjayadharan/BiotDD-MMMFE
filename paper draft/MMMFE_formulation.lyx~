@@ -1,0 +1,490 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+
+
+\numberwithin{equation}{section} 
+\usepackage{graphicx}
+
+\newcommand{\rpm}{\raisebox{.2ex}{$\scriptstyle\pm$}}
+\newcommand{\tribar}{\vert \!  \vert \!  \vert }
+\newcommand{\pdrv}[1]{\frac{\partial#1}{\partial t}}
+\newcommand{\ddt}[1]{\frac{\partial}{\partial t}#1}
+\newcommand{\inp}[2][]{\left(#1,\, #2\right)}
+\newcommand{\gnp}[2][]{\langle#1,\, #2\rangle}
+
+% Matrix blocks
+\def\As{A_{\sigma\sigma}}
+\def\Asu{A_{\sigma u}}
+\def\Asg{A_{\sigma\gamma}}
+\def\Asp{A_{\sigma p}}
+\def\Az{A_{zz}}
+\def\Azp{A_{zp}}
+\def\Ap{A_{pp}}
+
+\def\Ausu{A_{u\sigma u}}
+\def\Ausg{A_{u\sigma \g}}
+\def\Ausp{A_{u\sigma p}}
+\def\Agsg{A_{\g\sigma \g}}
+\def\Agsp{A_{\g\sigma p}}
+\def\Apszp{A_{p\sigma z p}}
+\def\Ausgu{A_{u\sigma \g u}}
+
+% Calligraphic
+\def\Tc{\mathcal{T}}
+\def\Ac{\mathcal{A}}
+\def\Qc{\mathcal{Q}}
+\def\Mc{\mathcal{M}}
+\def\Ec{\mathcal{E}}
+\def\BDM{\mathcal{BDM}}
+\def\RT{\mathcal{RT}}
+\def\SS{\mathcal{SS}}
+\def\Pc{\mathcal{P}}
+\def\Kc{\mathcal{K}}
+\def\Kci{\mathcal{K}^{-1}}
+\def\Lc{\mathcal{L}}
+\def\Mc{\mathcal{M}}
+
+% Math bold
+\def\X{\mathbb{X}}
+\def\W{\mathbb{W}}
+\def\R{\mathbb{R}}
+\def\M{\mathbb{M}}
+\def\S{\mathbb{S}}
+\def\N{\mathbb{N}}
+\def\I{\mathbb{I}}
+
+
+
+% Greeks
+\def\a{\alpha}
+\def\s{\sigma}
+\def\t{\tau}
+\def\g{\gamma}
+\def\c{\chi}
+\def\l{\lambda}
+\def\lah{\lambda_h}
+\def\m{\mu}
+\def\z{\zeta}
+\def\tet{\theta}
+\def\del{\delta}
+\def\Pit{\tilde{\Pi}}
+
+% Bolds
+\def\r{\mathbf{r}}
+
+% Matrices
+\def\As{A_{\s\s}}
+\def\Au{A_{\s u}}
+\def\Ag{A_{\s\g}}
+
+% Operators
+\def\skew{\operatorname{Skew}}
+\def\vec{\operatorname{Vec}}
+\def\asym{\operatorname{as\,}}
+\def\tr{\operatorname{tr\,}}
+\def\curl{\operatorname{curl}}
+\def\dvr{\operatorname{div}}  % as a word
+
+% Time derivative
+\def\dt{\partial_t}
+
+% Hats
+\def\Eh{\hat{E}}
+\def\Ah{\hat{A}}
+\def\Th{\hat{T}}
+\def\PIh{\hat{\Pi}}
+\def\Qch{\hat{\Qc}}
+\def\Qh{\hat{\Qc}}
+\def\Mh{\hat{M}}
+\def\rh{\hat{\r}}
+\def\eh{\hat{e}}
+\def\wh{\hat{w}}
+\def\qh{\hat{q}}
+\def\nh{\hat{n}}
+\def\uh{\hat{u}}
+\def\vh{\hat{v}}
+\def\xh{\hat{x}}
+\def\yh{\hat{y}}
+\def\sh{\hat{\s}}
+\def\th{\hat{\t}}
+\def\gh{\hat{\g}}
+\def\xih{\hat{\xi}}
+\def\ch{\hat{\c}}
+\def\teth{\hat{\tet}}
+\def\delh{\hat{\del}}
+\def\Xh{\hat{\X}}
+\def\Vh{\hat{V}}
+\def\Wh{\hat{W}}
+\def\Kh{\hat{K}^{-1}}
+\def\Ath{\widehat{A\t}}
+\def\Acth{\widehat{\Ac\t}}
+\def\Zh{\hat{Z}}
+\def\dvrh{\widehat{\dvr}}
+\def\Pih{\hat{\Pi}}
+\def\Mh{\hat{M}}
+\def\zetah{\hat{\zeta}}
+\def\phih{\hat{\phi}}
+\def\psih{\hat{\psi}}
+
+\def\Dt{\Delta t}
+
+% Projectors
+\def\Quh{Q^{u}_h}
+\def\Qgh{Q^{\g}_h}
+
+
+% Smth
+\def\dfi{DF_E^{-1}}
+\def\jfi{J_{F^{-1}_E}}
+
+% Boundaries and domains
+\def\O{\Omega}
+\def\G{\Gamma}
+\def\Gn{\Gamma_N}
+\def\Gd{\Gamma_D}
+\def\dO{{\partial\Omega}}
+
+% Norms
+\def\l2o{{L^{2}(\Omega)}}
+
+% Variables and test functions
+\def\api{{\alpha p_h I}}
+\def\awi{{\alpha w I}}
+
+\def\K{{K^{-1}}}
+
+% Projectors
+\def\Ps{{\Pi_\sigma}}
+\def\Pz{{\Pi_z}}
+\def\Qu{{\Qc_u}}
+\def\Qg{{\Qc_\gamma}}
+\def\Qp{{\Qc_p}}
+
+\def\red{\color{red}}
+
+\newtheorem{remark}{Remark}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+
+\def\ss{\sigma_{h,i}^{*,n+1}}
+\def\us{u_{h,i}^{*,n+1}}
+\def\gs{\g_{h,i}^{*,n+1}}
+\def\zs{z_{h,i}^{*,n+1}}
+\def\ps{p_{h,i}^{*,n+1}}
+
+\def\sb{\bar{\sigma}_{h,i}^{n+1}}
+\def\ub{\bar{u}_{h,i}^{n+1}}
+\def\gb{\bar{\g}_{h,i}^{n+1}}
+\def\zb{\bar{z}_{h,i}^{n+1}}
+\def\pb{\bar{p}_{h,i}^{n+1}}
+
+\def\sbo{\bar{\sigma}_{h,i}^{n}}
+\def\ubo{\bar{u}_{h,i}^{n}}
+\def\gbo{\bar{\g}_{h,i}^{n}}
+\def\zbo{\bar{z}_{h,i}^{n}}
+\def\pbo{\bar{p}_{h,i}^{n}}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\paperfontsize 11
+\spacing single
+\use_hyperref false
+\papersize letterpaper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.2cm
+\topmargin 2.2cm
+\rightmargin 2.2cm
+\bottommargin 2.2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Use AMS align environment for better looking equations.
+ format: block1 (Equation) block2 (=RHS) block3 (function space)  (label)
+\end_layout
+
+\begin_layout Plain Layout
+For long system of equations to make equations start from left do ams align
+ evn with : block1 (empty) block2 (LHS=RHS) block3 (function space) (label).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Biot MMMFE.
+\end_layout
+
+\begin_layout Author
+Manu Jayadharan 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+ 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Ivan Yotov
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Section
+Formulation of the methods
+\end_layout
+
+\begin_layout Subsection
+Mathematical formulation of model Problem.
+\end_layout
+
+\begin_layout Subsection
+Formulation of monolithic MMMFE method.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega=\cup_{i=1}^{n}\Omega_{i}$
+\end_inset
+
+ be a union of non-overlapping shape regular polygonal subdomains.
+ Let 
+\begin_inset Formula $\G_{i,j}=\dO_{i}\cap\dO_{j},\,\G=\cup_{i,j=1}^{n}\G_{i,j},$
+\end_inset
+
+ and 
+\begin_inset Formula $\G_{i}=\dO_{i}\cap\G=\dO_{i}\setminus\dO$
+\end_inset
+
+ denote the interior subdomain interfaces.
+ The domain descretization technique we develop here is generalization of
+ the techniques derived in [give reference to the other paper] to a general
+ case where the sub-domains have non-matching grids with different scales
+ of refinement.
+ We make use of relatively coarser mortar finite elements of our choice
+ satisfying certain conditions at the interface of sub-domains.
+ Let 
+\begin_inset Formula $h_{i}$
+\end_inset
+
+ be the diameter of maximal element in the mesh on 
+\begin_inset Formula $\Omega_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $h=\max_{i}h_{i}$
+\end_inset
+
+.
+  
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+Talk about the computationally cheap and non-matching grid advantages this
+ method has over the previous paper in the introduction.
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+, let 
+\begin_inset Formula $\mathbb{X}_{h,i}\times V_{h,i}\times\mathbb{W}_{h,i}\times Z_{h,i}\times W_{h,i}$
+\end_inset
+
+ be a collection of MFE families defined on the subdomain 
+\begin_inset Formula $\Omega_{i}.$
+\end_inset
+
+ We assume that 
+\begin_inset Formula $\mathbb{X}_{h,i},V_{h,i},\W_{h,i},Z_{h,i}$
+\end_inset
+
+ and 
+\begin_inset Formula $W$
+\end_inset
+
+ contain polynomials of degree less than or equal to 
+\begin_inset Formula $k\ge1,l\ge0,q\ge0,r\ge1$
+\end_inset
+
+ and 
+\begin_inset Formula $s\ge0$
+\end_inset
+
+ respectively.
+ Let us define 
+\begin_inset Formula 
+\[
+\mathbb{X}_{h}=\bigoplus_{1\le i\le n}\mathbb{X}_{h,i},\quad V_{h}=\bigoplus_{1\le i\le n}V_{h,i},\quad\mathbb{W}_{h,i}=\bigoplus_{1\le i\le n}\mathbb{W}_{h,i}\quad Z_{h}=\bigoplus_{1\le i\le n}Z_{h,i},\quad W_{h}=\bigoplus_{1\le i\le n}W_{h,i}.
+\]
+
+\end_inset
+
+Note that the definition of the global spaces 
+\begin_inset Formula $\mathbb{X}_{h}$
+\end_inset
+
+ and 
+\begin_inset Formula $Z_{h}$
+\end_inset
+
+ do not impose continuity of normal component of stress or velocity across
+ the sub-domain interfaces.
+ This issue is taken care of using Lagrange multipliers defined on compatible
+ mortar spaces on the interface.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "Manu_biot_dd"
+options "bibtotoc,abbrv"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
