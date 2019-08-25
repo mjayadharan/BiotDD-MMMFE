@@ -929,7 +929,7 @@ key "brezzi1991mixed"
 \end_layout
 
 \begin_layout Subsection
-Formulation of monolithic MMMFE method.
+Formulation of monolithic MMMFE method using non-matching grids.
 \end_layout
 
 \begin_layout Standard
@@ -947,12 +947,12 @@ Let
 \end_inset
 
  denote the interior subdomain interfaces.
- The domain descretization technique we develop here is generalization of
+ The domain discretization technique we develop here is generalization of
  the techniques derived in [give reference to the other paper] to a general
  case where the sub-domains have non-matching grids with different scales
  of refinement.
  We make use of relatively coarser mortar finite elements of our choice
- satisfying certain conditions at the interface of sub-domains.
+ satisfying certain conditions at the interface of the sub-domains.
  Let 
 \begin_inset Formula $h_{i}$
 \end_inset
@@ -1010,7 +1010,7 @@ For
 \end_inset
 
  respectively.
- Let us define 
+ Let us define global spaces as follows: 
 \begin_inset Formula 
 \[
 \mathbb{X}_{h}=\bigoplus_{1\le i\le n}\mathbb{X}_{h,i},\quad V_{h}=\bigoplus_{1\le i\le n}V_{h,i},\quad\mathbb{W}_{h,i}=\bigoplus_{1\le i\le n}\mathbb{W}_{h,i}\quad Z_{h}=\bigoplus_{1\le i\le n}Z_{h,i},\quad W_{h}=\bigoplus_{1\le i\le n}W_{h,i}.
@@ -1026,11 +1026,233 @@ Note that the definition of the global spaces
 \begin_inset Formula $Z_{h}$
 \end_inset
 
- do not impose continuity of normal component of stress or velocity across
+ do not impose continuity of normal components of stress or velocity across
  the sub-domain interfaces.
  This issue is taken care of using Lagrange multipliers defined on compatible
  mortar spaces on the interface.
+ Let 
+\begin_inset Formula $\Tc{}_{h,i,j}$
+\end_inset
+
+ be a shape regular quasi-uniform finite element partition of 
+\begin_inset Formula $\Gamma_{i,j}$
+\end_inset
+
+ constructed using a simplical or quadrilateral mesh in dimension 
+\begin_inset Formula $d-1$
+\end_inset
+
+ with maximal element diameter 
+\begin_inset Formula $H.$
+\end_inset
+
+ Define the global mortar fine element space on the union of sub-domain
+ interfaces,
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ to be, 
+\begin_inset Formula 
+\[
+\Lambda_{H}=\bigoplus_{1\le i\le n}\begin{pmatrix}\Lambda_{H,i,j}^{u}\\
+\Lambda_{H,i,j}^{p}
+\end{pmatrix},
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\Lambda_{H,i,j}^{u}\subset\left(L^{2}(\Gamma_{i,j})\right)^{d}$
+\end_inset
+
+ and 
+\begin_inset Formula $\Lambda_{H,i,j}^{p}\subset L^{2}(\Gamma_{i,j})$
+\end_inset
+
+ are mortar finite element spaces on 
+\begin_inset Formula $\Gamma_{i,j}$
+\end_inset
+
+ representing the displacement and pressure Lagrange multipliers respectively.
+ Aforementioned mortar spaces contain either continuous or discontinuous
+ polynomials of degree degree up to 
+\begin_inset Formula $m\ge0$
+\end_inset
+
+.
+ Conditions on the compatibility of the degrees and richness of the mortar
+ spaces to have a well-posed and stable method will be discussed in the
+ later sections.
  
+\end_layout
+
+\begin_layout Standard
+The MFE problem in the mortar DD setting give rise to a Dirichlet type sub-domai
+n problem as follows: for 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+, find 
+\begin_inset Formula $(\sigma_{h,i},u_{h,i},\g_{h,i},z_{h,i},p_{h,i},\lambda_{H})\in\X_{h,i}\times V_{h,i}\times\W_{h,i}\times Z_{h,i}\times W_{h,i}\times\Lambda_{H}$
+\end_inset
+
+ such that: 
+\size small
+
+\begin_inset Formula 
+\begin{align}
+ & \inp[A\sigma_{h,i}]{\tau}_{\O_{i}}+\inp[A\a p_{h,i}I]{\tau}_{\O_{i}}+\inp[u_{h,i}]{\dvr{\tau}}_{\O_{i}}+\inp[\gamma_{h,i}]{\tau}_{\O_{i}}\nonumber \\
+ & \hspace{20em}=\gnp[g_{u}]{\t\,n}_{\dO\cap\Gd^{displ}}+\gnp[\lambda_{h}^{u}]{\t\,n}_{\Gamma_{i}}, &  & \forall\tau\in\X_{h,i},\label{eq:monodd-mmmfe1}\\
+ & \inp[\dvr{\sigma_{h,i}}]{v}_{\O_{i}}=-\inp[f]{v}_{\O_{i}}, &  & \forall v\in V_{h,i},\label{eq:monodd-mmmfe2}\\
+ & \inp[\sigma_{h,i}]{\xi}_{\O_{i}}=0, &  & \forall\xi\in\W_{h,i},\label{eq:monodd-mmmfe3}\\
+ & \inp[\K z_{h,i}]{q}_{\O_{i}}-\inp[p_{h,i}]{\dvr{q}}_{\O_{i}}=-\gnp[g_{p}]{v\cdot n}_{\dO\cap\Gd^{pres}}-\gnp[\lambda_{h}^{p}]{q\cdot n}_{\Gamma_{i}}, &  & \forall q\in Z_{h,i},\label{eq:monodd-mmmfe4}\\
+ & c_{0}\inp[\pdrv{p_{h,i}}]{w}_{\O_{i}}+\a\inp[\ddt A\sigma_{h,i}]{wI}_{\O_{i}}+\a\inp[\ddt\tr(A\a p_{h,i}I)]{w}_{\O_{i}}+\inp[\dvr{z_{h,i}}]{w}_{\O_{i}}\nonumber \\
+ & \hspace{20em}=\inp[g]{w}_{\O_{i}}, &  & \forall w\in W_{h,i},\label{eq:monodd-mmmfe5}\\
+ & \sum_{i=1}^{n}\inp[\sigma_{h,i}\,n_{i}]{\mu^{u}}_{\G_{i}}=0, &  & \forall\mu^{u}\in\Lambda_{H}^{u},\label{eq:monodd-mmmfe6}\\
+ & \sum_{i=1}^{n}\inp[z_{h,i}\cdot n_{i}]{\mu^{p}}_{\G_{i}}=0, &  & \forall\mu^{p}\in\Lambda_{H}^{p},\label{eq:monodd-mmmfe7}
+\end{align}
+
+\end_inset
+
+ where 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ is the outward unit normal vector field on 
+\begin_inset Formula $\O_{i}$
+\end_inset
+
+.
+ Note that equations (
+\size default
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:monodd-mmmfe6"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:monodd-mmmfe7"
+
+\end_inset
+
+
+\size small
+) enforces a notion of weak continuity of 
+\size default
+normal components of stress tensor and velocity vector across the sub-domain
+ interfaces
+\size small
+ 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Spaces of weakly continuous stress and velocity.
+\end_layout
+
+\begin_layout Standard
+In this section, we introduce spaces of weakly continuous stress tensors
+ and velocity vectors as follows:
+\begin_inset Formula 
+\[
+\X_{h,0}=\left\{ \tau\in\X_{h}:\sum_{i=1}^{n}\inp[\tau n_{i}]{\mu^{u}}_{\G_{i}}=0\,\,\,\forall\mu^{u}\in\Lambda_{H}\right\} 
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\[
+Z_{h,0}=\left\{ q\in Z_{h}:\sum_{i=1}^{n}\inp[q\cdot n_{i}]{\mu^{p}}_{\G_{i}}=0\,\,\,\forall\mu^{p}\in\Lambda_{H}\right\} .
+\]
+
+\end_inset
+
+In order to analyze the system 
+\size small
+(
+\size default
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:monodd-mmmfe1"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:monodd-mmmfe7"
+
+\end_inset
+
+
+\size small
+) using techniques developed for single domain system (
+\size default
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fe1"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fe5"
+
+\end_inset
+
+
+\size small
+) in 
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+
+\size small
+[give reference fo Ilona's and other relevant publications.]
+\end_layout
+
+\end_inset
+
+, we restate the DD subdomain problems using the weakly continuous spaces
+ 
+\begin_inset Formula $\X_{h,0}$
+\end_inset
+
+ and 
+\begin_inset Formula $Z_{h,0}$
+\end_inset
+
+ as follows: 
+\size default
+find 
+\begin_inset Formula $\ensuremath{(\sigma_{h},u_{h},\gamma_{h},z_{h},p_{h})}\in\X_{h,0}\times V_{h}\times\W_{h}\times Z_{h,0}\times W_{h}$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\begin{align}
+ & \inp[A\sigma_{h}]{\tau}_{\Omega}+\inp[A\a p_{h}I]{\tau}_{\Omega}+\sum_{i=1}^{n}\inp[u_{h}]{\dvr{\tau}}_{\Omega_{i}}+\inp[\gamma_{h}]{\tau}_{\Omega}=\gnp[g_{u}]{\t\,n}_{\Gamma_{D}^{displ}}, & \forall\tau\in\X_{h,0},\label{eq:fe-mono-weak-1}\\
+ & \sum_{i=1}^{n}\inp[\dvr{\sigma_{h}}]{v}_{\Omega_{i}}=-\inp[f]{v}{}_{\Omega}, & \forall v\in V_{h},\label{eq:fe-mono-weak-2}\\
+ & \inp[\sigma_{h}]{\xi}_{\Omega}=0, & \forall\xi\in\W_{h},\label{eq:fe-mono-weak-3}\\
+ & \inp[\K z_{h}]{q}_{\Omega}-\sum_{i=1}^{n}\inp[p_{h}]{\dvr{q}}_{\Omega_{i}}=-\gnp[g_{p}]{v\cdot n}_{\Gamma_{D}^{pres}}, & \forall q\in Z_{h,0},\label{eq:fe-mono-weak-4}\\
+ & c_{0}\inp[\pdrv{p_{h}}]{w}_{\Omega}+\a\inp[\ddt A\sigma_{h}]{wI}_{\Omega}+\a\inp[\ddt\tr(A\a p_{h}I)]{w}_{\Omega}+\sum_{i=1}^{n}\inp[\dvr{z_{h}}]{w}{}_{\Omega_{i}}=\inp[g]{w}_{\Omega}, & \forall w\in W_{h}.\label{eq:fe-mono-weak-5}
+\end{align}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
