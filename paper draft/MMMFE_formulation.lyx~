@@ -171,6 +171,7 @@
 \newtheorem{corollary}{Corollary}[section]
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}{Proposition}[section]
+\newtheorem{assump}{Assumption}
 
 \def\ss{\sigma_{h,i}^{*,n+1}}
 \def\us{u_{h,i}^{*,n+1}}
@@ -892,10 +893,18 @@ key "cockburn2010new,gopalakrishnan2012second"
 
  family of elements.
  In particular, as shown in (citation), these families satisfies the inf-sup
- condition 
+ condition,
+\end_layout
+
+\begin_layout Standard
+for any 
+\begin_inset Formula $\left(u_{h},\gamma_{h}\right)\in V_{h}\times\W_{h}$
+\end_inset
+
+,
 \begin_inset Formula 
 \begin{align}
-\|u_{h}\|+\|\gamma_{h}\| & \le C\sup_{0\ne\tau\in\mathbb{X}_{h}}\frac{\inp[u_{h}]{\dvr{\tau}}+\inp[\gamma_{h}]{\tau}}{\|\tau\|_{H(div;\Omega,\mathbb{M})}}\label{eq:inf-sup-elast}
+\|u_{h}\|+\|\gamma_{h}\| & \le C\sup_{0\ne\tau\in\mathbb{X}_{h}}\frac{\inp[u_{h}]{\dvr{\tau}}+\inp[\gamma_{h}]{\tau}}{\|\tau\|_{H(\text{div};\Omega,\mathbb{M})}}.\label{eq:inf-sup-elast}
 \end{align}
 
 \end_inset
@@ -917,10 +926,18 @@ key "brezzi1991mixed"
 
 \end_inset
 
- where its shown that they satisfy the following inf-sup condition
+ where its shown that they satisfy the following inf-sup condition, 
+\end_layout
+
+\begin_layout Standard
+for any 
+\begin_inset Formula $w_{h}\in W_{h}$
+\end_inset
+
+,
 \begin_inset Formula 
 \begin{align}
-||\ps(\lambda_{h})||_{\Omega_{i}} & \le C\sup_{0\ne q\in Z_{h}}\frac{\langle\nabla\cdot q,p_{h}\rangle}{||q||_{\text{H(div,\ensuremath{\Omega})}}}\label{eq:inf-sup-darcy}
+||\ps(\lambda_{h})||_{\Omega_{i}} & \le C\sup_{0\ne q_{h}\in Z_{h}}\frac{\langle\nabla\cdot q_{h},w_{h}\rangle}{||q_{h}||_{H\text{(div,\ensuremath{\Omega})}}}.\label{eq:inf-sup-darcy}
 \end{align}
 
 \end_inset
@@ -1101,15 +1118,15 @@ n problem as follows: for
 
 \begin_inset Formula 
 \begin{align}
- & \inp[A\sigma_{h,i}]{\tau}_{\O_{i}}+\inp[A\a p_{h,i}I]{\tau}_{\O_{i}}+\inp[u_{h,i}]{\dvr{\tau}}_{\O_{i}}+\inp[\gamma_{h,i}]{\tau}_{\O_{i}}\nonumber \\
+ & \inp[A\left(\sigma_{h,i}+\a p_{h,i}I\right)]{\tau}_{\O_{i}}+\inp[u_{h,i}]{\dvr{\tau}}_{\O_{i}}+\inp[\gamma_{h,i}]{\tau}_{\O_{i}}\nonumber \\
  & \hspace{20em}=\gnp[g_{u}]{\t\,n}_{\dO\cap\Gd^{displ}}+\gnp[\lambda_{h}^{u}]{\t\,n}_{\Gamma_{i}}, &  & \forall\tau\in\X_{h,i},\label{eq:monodd-mmmfe1}\\
  & \inp[\dvr{\sigma_{h,i}}]{v}_{\O_{i}}=-\inp[f]{v}_{\O_{i}}, &  & \forall v\in V_{h,i},\label{eq:monodd-mmmfe2}\\
  & \inp[\sigma_{h,i}]{\xi}_{\O_{i}}=0, &  & \forall\xi\in\W_{h,i},\label{eq:monodd-mmmfe3}\\
  & \inp[\K z_{h,i}]{q}_{\O_{i}}-\inp[p_{h,i}]{\dvr{q}}_{\O_{i}}=-\gnp[g_{p}]{v\cdot n}_{\dO\cap\Gd^{pres}}-\gnp[\lambda_{h}^{p}]{q\cdot n}_{\Gamma_{i}}, &  & \forall q\in Z_{h,i},\label{eq:monodd-mmmfe4}\\
- & c_{0}\inp[\pdrv{p_{h,i}}]{w}_{\O_{i}}+\a\inp[\ddt A\sigma_{h,i}]{wI}_{\O_{i}}+\a\inp[\ddt\tr(A\a p_{h,i}I)]{w}_{\O_{i}}+\inp[\dvr{z_{h,i}}]{w}_{\O_{i}}\nonumber \\
+ & c_{0}\inp[\pdrv{p_{h,i}}]{w}_{\O_{i}}+\a\inp[\ddt A\left(\sigma_{h,i}+\a p_{h,i}I\right)]{wI}_{\O_{i}}+\inp[\dvr{z_{h,i}}]{w}_{\O_{i}}\nonumber \\
  & \hspace{20em}=\inp[g]{w}_{\O_{i}}, &  & \forall w\in W_{h,i},\label{eq:monodd-mmmfe5}\\
- & \sum_{i=1}^{n}\inp[\sigma_{h,i}\,n_{i}]{\mu^{u}}_{\G_{i}}=0, &  & \forall\mu^{u}\in\Lambda_{H}^{u},\label{eq:monodd-mmmfe6}\\
- & \sum_{i=1}^{n}\inp[z_{h,i}\cdot n_{i}]{\mu^{p}}_{\G_{i}}=0, &  & \forall\mu^{p}\in\Lambda_{H}^{p},\label{eq:monodd-mmmfe7}
+ & \sum_{i=1}^{n}\gnp[\sigma_{h,i}\,n_{i}]{\mu^{u}}_{\G_{i}}=0, &  & \forall\mu^{u}\in\Lambda_{H}^{u},\label{eq:monodd-mmmfe6}\\
+ & \sum_{i=1}^{n}\gnp[z_{h,i}\cdot n_{i}]{\mu^{p}}_{\G_{i}}=0, &  & \forall\mu^{p}\in\Lambda_{H}^{p},\label{eq:monodd-mmmfe7}
 \end{align}
 
 \end_inset
@@ -1153,8 +1170,61 @@ normal components of stress tensor and velocity vector across the sub-domain
 .
 \end_layout
 
+\begin_layout Standard
+For each subdomain 
+\begin_inset Formula $\Omega_{i},$
+\end_inset
+
+we define a projection operators 
+\begin_inset Formula $\mathcal{Q}_{h,i}^{u}:\left(L^{2}(\Gamma_{i})\right)^{d}\to\X_{h,i}n_{i}|_{\Gamma_{i}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{Q}_{h,i}^{p}:L^{2}(\Gamma_{i})\to V_{h,i}\cdot n_{i}|_{\Gamma_{i}}$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $\left(\phi_{u},\phi_{p}\right)\in\left(L^{2}(\Gamma_{i})\right)^{d}\times L^{2}(\Gamma_{i})$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \left\langle \phi_{u}-\mathcal{Q}_{h,i}^{u}\phi_{u},\tau n\right\rangle =0, & \forall\tau\in\X_{h,i},\\
+ & \left\langle \phi_{p}-\mathcal{Q}_{h,i}^{p}\phi_{p},v\cdot n\right\rangle =0 & \forall v\in V_{h,i}.
+\end{align*}
+
+\end_inset
+
+And finally we define 
+\begin_inset Formula $\mathcal{Q}_{h,i}:\left(L^{2}(\Gamma_{i})\right)^{d}\times L^{2}(\Gamma_{i})\to\X_{h,i}n_{i}|_{\Gamma_{i}}\times V_{h,i}\cdot n_{i}|_{\Gamma_{i}}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{Q}_{h,i}=\begin{pmatrix}\mathcal{Q}_{h,i}^{u}\\
+\mathcal{Q}_{h,i}^{p}
+\end{pmatrix}.\label{eq:MrtToTraceProj}
+\end{equation}
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsection
 Spaces of weakly continuous stress and velocity.
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Spaces-of-weakly"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1243,11 +1313,397 @@ find
  such that
 \begin_inset Formula 
 \begin{align}
- & \inp[A\sigma_{h}]{\tau}{}_{\Omega}+\inp[A\a p_{h}I]{\tau}{}_{\Omega}+\sum_{i=1}^{n}\inp[u_{h}]{\dvr{\tau}}{}_{\Omega_{i}}+\inp[\gamma_{h}]{\tau}{}_{\Omega}=\gnp[g_{u}]{\t\,n}_{\Gamma_{D}^{displ}}, & \forall\tau\in\X_{h,0},\label{eq:fe-mono-weak-1}\\
- & \sum_{i=1}^{n}\inp[\dvr{\sigma_{h}}]{v}{}_{\Omega i}=-\inp[f]{v}{}_{\Omega}, & \forall v\in V_{h},\label{eq:fe-mono-weak-2}\\
- & \inp[\sigma_{h}]{\xi}{}_{\Omega}=0, & \forall\xi\in\W_{h},\label{eq:fe-mono-weak-3}\\
- & \inp[\K z_{h}]{q}{}_{\Omega}-\sum_{i=1}^{n}\inp[p_{h}]{\dvr{q}}{}_{\Omega i}=-\gnp[g_{p}]{v\cdot n}_{\Gamma_{D}^{pres}}, & \forall q\in Z_{h,0},\label{eq:fe-mono-weak-4}\\
- & c_{0}\inp[\pdrv{p_{h}}]{w}_{\Omega}+\a\inp[\ddt A\sigma_{h}]{wI}_{\Omega}+\a\inp[\ddt\tr(A\a p_{h}I)]{w}_{\Omega}+\sum_{i=1}^{n}\inp[\dvr{z_{h}}]{w}{}_{\Omega,i}=\inp[g]{w}_{\Omega}, & \forall w\in W_{h}.\label{eq:fe-mono-weak-5}
+ & \inp[A\left(\sigma_{h}+\a p_{h}I\right)]{\tau}_{\Omega}+\inp[A]{\tau}_{\Omega}+\sum_{i=1}^{n}\inp[u_{h}]{\dvr{\tau}}_{\Omega_{i}}+\inp[\gamma_{h}]{\tau}_{\Omega}=\gnp[g_{u}]{\t\,n}_{\Gamma_{D}^{displ}}, & \forall\tau\in\X_{h,0},\label{eq:fe-mono-weak-1}\\
+ & \sum_{i=1}^{n}\inp[\dvr{\sigma_{h}}]{v}_{\Omega_{i}}=-\inp[f]{v}{}_{\Omega}, & \forall v\in V_{h},\label{eq:fe-mono-weak-2}\\
+ & \inp[\sigma_{h}]{\xi}_{\Omega}=0, & \forall\xi\in\W_{h},\label{eq:fe-mono-weak-3}\\
+ & \inp[\K z_{h}]{q}_{\Omega}-\sum_{i=1}^{n}\inp[p_{h}]{\dvr{q}}_{\Omega_{i}}=-\gnp[g_{p}]{v\cdot n}_{\Gamma_{D}^{pres}}, & \forall q\in Z_{h,0},\label{eq:fe-mono-weak-4}\\
+ & c_{0}\inp[\pdrv{p_{h}}]{w}_{\Omega}+\a\inp[\ddt A\left(\sigma_{h}+\a p_{h}I\right)]{wI}_{\Omega}+\sum_{i=1}^{n}\inp[\dvr{z_{h}}]{w}{}_{\Omega_{i}}=\inp[g]{w}_{\Omega}, & \forall w\in W_{h}.\label{eq:fe-mono-weak-5}
+\end{align}
+
+\end_inset
+
+Note that we use the above formulation only for the sake of analysis and
+ will present a reduction to interface problem approach to design the numerical
+ algorithm.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Analysis of MMMFE for the monolithic system.
+\end_layout
+
+\begin_layout Subsection
+Well-posedness and stability analysis.
+\end_layout
+
+\begin_layout Standard
+In this subsection, we show that the system (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fe-mono-weak-1"
+
+\end_inset
+
+)–(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fe-mono-weak-5"
+
+\end_inset
+
+) is well-posed and stable under the following assumption: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{assump} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+The mortar space 
+\begin_inset Formula $\Lambda_{H}$
+\end_inset
+
+ is chosen so that there exists a constant 
+\begin_inset Formula $C$
+\end_inset
+
+ independent of 
+\begin_inset Formula $H$
+\end_inset
+
+ and 
+\begin_inset Formula $h$
+\end_inset
+
+ such that the following inequality holds,
+\begin_inset Formula 
+\begin{equation}
+\|\mu\|_{\Gamma_{i,j}}\le C\left(\|\mathcal{Q}_{h,i}\mu\|_{\Gamma_{i,j}}+\|\mathcal{Q}_{h,j}\mu\|_{\Gamma_{i,j}}\right),\quad\forall\mu\in\Lambda_{H},\quad1\le i<j\le n.\label{eq:mortar_assumption}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{assump}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+Note that assumption (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:mortar_assumption"
+
+\end_inset
+
+) implies that the space 
+\begin_inset Formula $\Lambda_{H}$
+\end_inset
+
+ cannot be too rich compared to subdomain stress-velocity FE spaces(similar
+ approach to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ArbogastPencheva1"
+
+\end_inset
+
+) and this in turn make sure that 
+\begin_inset Formula $\Lambda_{H}^{u}$
+\end_inset
+
+ and 
+\begin_inset Formula $\Lambda_{H}^{p}$
+\end_inset
+
+ are well controlled by their projection on to the normal traces of velocity
+ and stress sub-domain spaces respectively.
+ In practice, this condition can be easily obtained by taking a coarser
+ mortar mesh satisfying 
+\begin_inset Formula $h<H\le1$
+\end_inset
+
+(see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ArbogastPencheva1,arbogast2000mixed,pencheva2003balancing"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Under the assumption (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:mortar_assumption"
+
+\end_inset
+
+), we present a inf-sup stability of the form (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:inf-sup-darcy"
+
+\end_inset
+
+) and (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:inf-sup-elast"
+
+\end_inset
+
+) with respect to the newly defined weakly continuous velocity and stress
+ tensor function as in sub-section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Spaces-of-weakly"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:operator_elast"
+
+\end_inset
+
+Under assumption (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:mortar_assumption"
+
+\end_inset
+
+), there exists a linear operator 
+\begin_inset Formula $\Pi_{0}^{E}:H^{\frac{1}{2}+\epsilon}(\Omega,\mathbb{M})\cap\X\to\X_{h,0}$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $\tau\in H^{\frac{1}{2}+\epsilon}(\Omega,\mathbb{M})\cap\X$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{align*}
+ & \sum_{i=1}^{n}\left(\text{div}\left(\Pi_{0}^{E}\tau-\tau\right),v\right)_{\Omega_{i}}=0, & \forall v\in V_{h,i},\\
+ & \left(\Pi_{0}^{E}\tau-\tau,\xi\right)=0, & \forall\xi\in\W_{h},\\
+ & \|\Pi_{0}^{E}\tau\|\le C\left(\|\tau\|_{\frac{1}{2}+\epsilon}+\|\text{div}\tau\|\right).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The proof depends on the construction of a correction term to force the
+ solutions to (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:monodd-mmmfe1"
+
+\end_inset
+
+)–(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:monodd-mmmfe5"
+
+\end_inset
+
+) to be in the weakly continuous spaces and also making use of (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:inf-sup-elast"
+
+\end_inset
+
+) for each sub-domain 
+\begin_inset Formula $\Omega_{i}.$
+\end_inset
+
+ Complete proof is given in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Lemma 3.4"
+key "eldar_elastdd"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:operator_darcy"
+
+\end_inset
+
+Under assumption (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:mortar_assumption"
+
+\end_inset
+
+), there exists a linear operator 
+\begin_inset Formula $\Pi_{0}^{D}:H_{0}^{1}\left(\Omega\right)^{n}\to Z_{h,0}$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $\forall q\in Z_{h,0},$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \left(\text{div}\left(\Pi_{0}^{D}q-q\right),w\right)_{\Omega_{i}}=0, & \forall w\in W_{h},\\
+ & \|\Pi_{0}^{D}q\|_{\X}\le C|q|_{H^{1}(\Omega)}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+This Lemma is proved similar to Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:operator_elast"
+
+\end_inset
+
+.
+ Details can be found in the proof of 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Lemma 3.6"
+key "GiraultVivetteYotov1"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:operator_elast"
+
+\end_inset
+
+ and Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:operator_darcy"
+
+\end_inset
+
+ along with a simple variant of Fortin's Lemma
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+give reference here
+\end_layout
+
+\end_inset
+
+ gives the following theorem (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Theorem 3.1"
+key "GiraultVivetteYotov1"
+
+\end_inset
+
+ for details) which gives inf-sup stability bounds with respect to the weakly
+ continuous spaces of stress and velocity.
+ 
+\end_layout
+
+\begin_layout Theorem
+Under assumption (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:mortar_assumption"
+
+\end_inset
+
+), there exists positive constants 
+\begin_inset Formula $C_{E}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{D}$
+\end_inset
+
+ independent of the discretization parameters 
+\begin_inset Formula $h$
+\end_inset
+
+ and 
+\begin_inset Formula $H$
+\end_inset
+
+ such that 
+\end_layout
+
+\begin_layout Standard
+for any 
+\begin_inset Formula $\left(u_{h},\gamma_{h}\right)\in V_{h}\times\W_{h}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align}
+\|u_{h}\|+\|\gamma_{h}\| & \le C_{D}\sup_{0\ne\tau\in\mathbb{X}_{h,0}}\frac{\inp[u_{h}]{\dvr{\tau}}+\inp[\gamma_{h}]{\tau}}{\|\tau\|_{H(\text{div};\Omega,\mathbb{M})}},\label{eq:inf-sup-elast-weak}
 \end{align}
 
 \end_inset
@@ -1256,7 +1712,16 @@ find
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator plain
+and for any 
+\begin_inset Formula $w_{h}\in W_{h}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align}
+||\ps(\lambda_{h})||_{\Omega_{i}} & \le C\sup_{0\ne q_{h}\in Z_{h,0}}\frac{\langle\nabla\cdot q_{h},w_{h}\rangle}{||q_{h}||_{H\text{(div,\ensuremath{\Omega})}}}.\label{eq:inf-sup-darcy-weak}
+\end{align}
+
 \end_inset
 
 

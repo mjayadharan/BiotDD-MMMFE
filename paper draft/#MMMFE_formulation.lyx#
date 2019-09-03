@@ -1,0 +1,1692 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+
+
+\numberwithin{equation}{section} 
+\usepackage{graphicx}
+
+\newcommand{\rpm}{\raisebox{.2ex}{$\scriptstyle\pm$}}
+\newcommand{\tribar}{\vert \!  \vert \!  \vert }
+\newcommand{\pdrv}[1]{\frac{\partial#1}{\partial t}}
+\newcommand{\ddt}[1]{\frac{\partial}{\partial t}#1}
+\newcommand{\inp}[2][]{\left(#1,\, #2\right)}
+\newcommand{\gnp}[2][]{\langle#1,\, #2\rangle}
+
+% Matrix blocks
+\def\As{A_{\sigma\sigma}}
+\def\Asu{A_{\sigma u}}
+\def\Asg{A_{\sigma\gamma}}
+\def\Asp{A_{\sigma p}}
+\def\Az{A_{zz}}
+\def\Azp{A_{zp}}
+\def\Ap{A_{pp}}
+
+\def\Ausu{A_{u\sigma u}}
+\def\Ausg{A_{u\sigma \g}}
+\def\Ausp{A_{u\sigma p}}
+\def\Agsg{A_{\g\sigma \g}}
+\def\Agsp{A_{\g\sigma p}}
+\def\Apszp{A_{p\sigma z p}}
+\def\Ausgu{A_{u\sigma \g u}}
+
+% Calligraphic
+\def\Tc{\mathcal{T}}
+\def\Ac{\mathcal{A}}
+\def\Qc{\mathcal{Q}}
+\def\Mc{\mathcal{M}}
+\def\Ec{\mathcal{E}}
+\def\BDM{\mathcal{BDM}}
+\def\RT{\mathcal{RT}}
+\def\SS{\mathcal{SS}}
+\def\Pc{\mathcal{P}}
+\def\Kc{\mathcal{K}}
+\def\Kci{\mathcal{K}^{-1}}
+\def\Lc{\mathcal{L}}
+\def\Mc{\mathcal{M}}
+
+% Math bold
+\def\X{\mathbb{X}}
+\def\W{\mathbb{W}}
+\def\R{\mathbb{R}}
+\def\M{\mathbb{M}}
+\def\S{\mathbb{S}}
+\def\N{\mathbb{N}}
+\def\I{\mathbb{I}}
+
+% Greeks
+\def\a{\alpha}
+\def\s{\sigma}
+\def\t{\tau}
+\def\g{\gamma}
+\def\c{\chi}
+\def\l{\lambda}
+\def\lah{\lambda_h}
+\def\m{\mu}
+\def\z{\zeta}
+\def\tet{\theta}
+\def\del{\delta}
+\def\Pit{\tilde{\Pi}}
+
+% Bolds
+\def\r{\mathbf{r}}
+
+% Matrices
+\def\As{A_{\s\s}}
+\def\Au{A_{\s u}}
+\def\Ag{A_{\s\g}}
+
+% Operators
+\def\skew{\operatorname{Skew}}
+\def\vec{\operatorname{Vec}}
+\def\asym{\operatorname{as\,}}
+\def\tr{\operatorname{tr\,}}
+\def\curl{\operatorname{curl}}
+\def\dvr{\operatorname{div}}  % as a word
+
+% Time derivative
+\def\dt{\partial_t}
+
+% Hats
+\def\Eh{\hat{E}}
+\def\Ah{\hat{A}}
+\def\Th{\hat{T}}
+\def\PIh{\hat{\Pi}}
+\def\Qch{\hat{\Qc}}
+\def\Qh{\hat{\Qc}}
+\def\Mh{\hat{M}}
+\def\rh{\hat{\r}}
+\def\eh{\hat{e}}
+\def\wh{\hat{w}}
+\def\qh{\hat{q}}
+\def\nh{\hat{n}}
+\def\uh{\hat{u}}
+\def\vh{\hat{v}}
+\def\xh{\hat{x}}
+\def\yh{\hat{y}}
+\def\sh{\hat{\s}}
+\def\th{\hat{\t}}
+\def\gh{\hat{\g}}
+\def\xih{\hat{\xi}}
+\def\ch{\hat{\c}}
+\def\teth{\hat{\tet}}
+\def\delh{\hat{\del}}
+\def\Xh{\hat{\X}}
+\def\Vh{\hat{V}}
+\def\Wh{\hat{W}}
+\def\Kh{\hat{K}^{-1}}
+\def\Ath{\widehat{A\t}}
+\def\Acth{\widehat{\Ac\t}}
+\def\Zh{\hat{Z}}
+\def\dvrh{\widehat{\dvr}}
+\def\Pih{\hat{\Pi}}
+\def\Mh{\hat{M}}
+\def\zetah{\hat{\zeta}}
+\def\phih{\hat{\phi}}
+\def\psih{\hat{\psi}}
+
+\def\Dt{\Delta t}
+
+% Projectors
+\def\Quh{Q^{u}_h}
+\def\Qgh{Q^{\g}_h}
+
+
+% Smth
+\def\dfi{DF_E^{-1}}
+\def\jfi{J_{F^{-1}_E}}
+
+% Boundaries and domains
+\def\O{\Omega}
+\def\G{\Gamma}
+\def\Gn{\Gamma_N}
+\def\Gd{\Gamma_D}
+\def\dO{{\partial\Omega}}
+
+% Norms
+\def\l2o{{L^{2}(\Omega)}}
+
+% Variables and test functions
+\def\api{{\alpha p_h I}}
+\def\awi{{\alpha w I}}
+
+\def\K{{K^{-1}}}
+
+% Projectors
+\def\Ps{{\Pi_\sigma}}
+\def\Pz{{\Pi_z}}
+\def\Qu{{\Qc_u}}
+\def\Qg{{\Qc_\gamma}}
+\def\Qp{{\Qc_p}}
+
+\def\red{\color{red}}
+
+\newtheorem{remark}{Remark}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{assump}{Assumption}
+
+\def\ss{\sigma_{h,i}^{*,n+1}}
+\def\us{u_{h,i}^{*,n+1}}
+\def\gs{\g_{h,i}^{*,n+1}}
+\def\zs{z_{h,i}^{*,n+1}}
+\def\ps{p_{h,i}^{*,n+1}}
+
+\def\sb{\bar{\sigma}_{h,i}^{n+1}}
+\def\ub{\bar{u}_{h,i}^{n+1}}
+\def\gb{\bar{\g}_{h,i}^{n+1}}
+\def\zb{\bar{z}_{h,i}^{n+1}}
+\def\pb{\bar{p}_{h,i}^{n+1}}
+
+\def\sbo{\bar{\sigma}_{h,i}^{n}}
+\def\ubo{\bar{u}_{h,i}^{n}}
+\def\gbo{\bar{\g}_{h,i}^{n}}
+\def\zbo{\bar{z}_{h,i}^{n}}
+\def\pbo{\bar{p}_{h,i}^{n}}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\paperfontsize 11
+\spacing single
+\use_hyperref false
+\papersize letterpaper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.2cm
+\topmargin 2.2cm
+\rightmargin 2.2cm
+\bottommargin 2.2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Use AMS align environment for better looking equations.
+ format: block1 (Equation) block2 (=RHS) block3 (function space)  (label)
+\end_layout
+
+\begin_layout Plain Layout
+For long system of equations to make equations start from left do ams align
+ evn with : block1 (empty) block2 (LHS=RHS) block3 (function space) (label).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Biot MMMFE.
+\end_layout
+
+\begin_layout Author
+Manu Jayadharan 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Ivan Yotov
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\X$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section
+Formulation of the methods
+\end_layout
+
+\begin_layout Subsection
+Mathematical formulation of model Problem.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega\subset\mathbb{R}^{d}$
+\end_inset
+
+, 
+\begin_inset Formula $d=2,3$
+\end_inset
+
+ be a simply connected domain occupied by a linearly elastic porous body.
+ We use the notation 
+\begin_inset Formula $\M$
+\end_inset
+
+, 
+\begin_inset Formula $\S$
+\end_inset
+
+ and 
+\begin_inset Formula $\N$
+\end_inset
+
+ for the spaces of 
+\begin_inset Formula $\ensuremath{d\times d}$
+\end_inset
+
+ matrices, symmetric matrices and skew-symmetric matrices respectively,
+ all over the field of real numbers, respectively.
+ Throughout the paper the divergence operator is the usual divergence for
+ vector fields, which produces vector field when applied to matrix field
+ by taking the divergence of each row.
+ We will also use the curl operator which is the usual curl when applied
+ to vector fields in three dimension, and defined as 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*} 
+\backslash
+curl{
+\backslash
+phi} =  (
+\backslash
+partial_2 
+\backslash
+phi, -
+\backslash
+partial_1 
+\backslash
+phi) 
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+ for a scalar function 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+phi$
+\end_layout
+
+\end_inset
+
+ in two dimension.
+ Similarly, for a vector field in two dimension or a matrix field in three
+ dimension, curl operator produces a matrix field by acting row-wise.
+ For the rest of this paper, 
+\begin_inset Formula $C$
+\end_inset
+
+ will denote a generic positive constant that is independent of the discretizati
+on parameter 
+\begin_inset Formula $h$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We will make use of the following standard notations.
+ For a set 
+\begin_inset Formula $G\subset\R^{d},$
+\end_inset
+
+ the 
+\begin_inset Formula $L^{2}(G)$
+\end_inset
+
+ inner product and norm are denoted by
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ $ (
+\backslash
+cdot,
+\backslash
+cdot)_G$ and $
+\backslash
+|
+\backslash
+cdot
+\backslash
+|_G$
+\end_layout
+
+\end_inset
+
+ respectively, for scalar, vector and tensor valued functions.
+ For a section of a subdomain boundary
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ $S$ we write $
+\backslash
+langle 
+\backslash
+cdot, 
+\backslash
+cdot 
+\backslash
+rangle_{S}$ and $
+\backslash
+|
+\backslash
+cdot
+\backslash
+|_{S}$ for the 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $L^{2}(S)$
+\end_inset
+
+ inner product   (or duality pairing) and norm, respectively.
+ We omit subscript 
+\begin_inset Formula $\ensuremath{G}$
+\end_inset
+
+ if 
+\begin_inset Formula $\ensuremath{G=\O}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The material properties are described at each point 
+\begin_inset Formula $\ensuremath{x\in\O}$
+\end_inset
+
+ by a compliance tensor 
+\begin_inset Formula $\ensuremath{A=A(x)}$
+\end_inset
+
+, which is a symmetric, bounded and uniformly positive definite linear operator
+ acting from 
+\begin_inset Formula $\ensuremath{\S\to\S}$
+\end_inset
+
+.
+ Therefore there exist constants 
+\begin_inset Formula $\ensuremath{0<\alpha_{0}\le\alpha_{1}<\infty}$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\begin{equation}
+\alpha_{0}\|\sigma\|^{2}\le\inp[A\sigma]{\sigma}\le\alpha_{1}\|\sigma\|^{2}.\label{coer-cont}
+\end{equation}
+
+\end_inset
+
+ We also assume that an extension of 
+\begin_inset Formula $A$
+\end_inset
+
+ to an operator 
+\begin_inset Formula $\ensuremath{\M\to\M}$
+\end_inset
+
+ still possesses the above properties.
+ In the special case of homogeneous and isotropic body operator 
+\begin_inset Formula $A$
+\end_inset
+
+ is given by,
+\begin_inset Formula 
+\begin{equation}
+A\sigma=\frac{1}{2\mu}\left(\sigma-\frac{\lambda}{2\mu+d\lambda}\operatorname{tr}(\sigma)I\right),\label{A-defn}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $I$
+\end_inset
+
+ is a 
+\begin_inset Formula $d\times d$
+\end_inset
+
+ identity matrix and 
+\begin_inset Formula $\mu>0,\lambda\ge0$
+\end_inset
+
+ are Lame coefficients.
+ Conventionally 
+\begin_inset Formula $K$
+\end_inset
+
+ stands for the permeability tensor, 
+\begin_inset Formula $c_{0}$
+\end_inset
+
+  for mass storativity and 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ represents the Biot-Willis constant.
+\end_layout
+
+\begin_layout Standard
+In this case  
+\end_layout
+
+\begin_layout Standard
+Given a vector field 
+\begin_inset Formula $f$
+\end_inset
+
+ on 
+\begin_inset Formula $\ensuremath{\Omega}$
+\end_inset
+
+ representing body forces, the quasi-static Biot system determines the displacem
+ent 
+\begin_inset Formula $u$
+\end_inset
+
+, together with the Darcy velocity 
+\begin_inset Formula $z$
+\end_inset
+
+ and pressure 
+\begin_inset Formula $p$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align}
+-\dvr\s(u) & =f, & \text{in \Omega},\label{biot-1}\\
+\K z+\nabla p & =0, & \text{in \Omega},\label{biot-2}\\
+\ddt(c_{0}p+\a\dvr u)+\dvr z & =q, & \text{in \Omega},\label{biot-3}
+\end{align}
+
+\end_inset
+
+where the poroelastic stress 
+\begin_inset Formula $\sigma(u)$
+\end_inset
+
+ is such that: 
+\begin_inset Formula 
+\begin{align*}
+\sigma(u)=\sigma_{E}(u)-\alpha pI,
+\end{align*}
+
+\end_inset
+
+ where 
+\begin_inset Formula $\sigma_{E}(u)=2\mu\epsilon(u)+\lambda\dvr u\,I$
+\end_inset
+
+ is the elastic stress and  
+\begin_inset Formula $\epsilon(u):=\frac{1}{2}\left(\nabla u+(\nabla u)^{T}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To close the system, the appropriate boundary conditions should also be
+ prescribed
+\begin_inset Formula 
+\begin{align}
+u & =g_{u} & \text{on \Gd^{displ}} & , & \s n & =0 & \text{on \Gn^{stress}},\label{biot-bc-1}\\
+p & =g_{p} & \text{on \Gd^{pres}} & , & z\cdot n & =0 & \text{on \Gn^{vel}},\label{biot-bc-2}
+\end{align}
+
+\end_inset
+
+where 
+\begin_inset Formula $\ensuremath{\Gd^{displ}\cup\Gn^{stress}=\Gd^{pres}\cup\Gn^{vel}=\partial\O}$
+\end_inset
+
+ are boundaries on which Dirichlet and Neumann data is specified for displacemen
+t, pressure and normal fluxes, respectively.
+ For simplicity, we assume non-zero measure for 
+\begin_inset Formula $\Gd^{displ}$
+\end_inset
+
+ and 
+\begin_inset Formula $\Gd^{pres}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Then the variational formulation for  (
+\begin_inset Formula $\ref{biot-1})\--($
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "biot-bc-2"
+
+\end_inset
+
+) reads: find 
+\begin_inset Formula $\ensuremath{(\sigma,u,\gamma,z,p)\in\X\times V\times\W\times Z\times W}$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\begin{align}
+ & \inp[A\sigma]{\tau}+\inp[A\a pI]{\tau}+\inp[u]{\dvr{\tau}}+\inp[\gamma]{\tau}=\gnp[g_{u}]{\t\,n}_{\Gamma_{D}^{displ}}, & \forall\tau\in\X,\label{eq:cts1}\\
+ & \inp[\dvr{\sigma}]{v}=-\inp[f]{v}, & \forall v\in V,\label{eq:cts2}\\
+ & \inp[\sigma]{\xi}=0, & \forall\xi\in\W,\label{eq:cts3}\\
+ & \inp[\K z]{q}-\inp[p]{\dvr{q}}=-\gnp[g_{p}]{v\cdot n}_{\Gamma_{D}^{pres}}, & \forall q\in Z,\label{eq:cts4}\\
+ & c_{0}\inp[\pdrv{p}]{w}+\a\inp[\ddt A\sigma]{wI}+\a\inp[\ddt\tr(A\a pI)]{w}+\inp[\dvr{z}]{w}=\inp[g]{w}, & \forall w\in W,\label{eq:cts5}
+\end{align}
+
+\end_inset
+
+where 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*} 	&
+\backslash
+X = 
+\backslash
+big
+\backslash
+{ 
+\backslash
+t
+\backslash
+in H (
+\backslash
+dvr;
+\backslash
+Omega,
+\backslash
+M) : 
+\backslash
+t
+\backslash
+,n = 0 
+\backslash
+text{ on } 
+\backslash
+Gn^{stress}  
+\backslash
+big
+\backslash
+}, 
+\backslash
+quad V = L^2 (
+\backslash
+Omega, 
+\backslash
+R^d), 
+\backslash
+quad 
+\backslash
+W = L^2 (
+\backslash
+Omega, 
+\backslash
+N), 
+\backslash
+
+\backslash
+ 	&Z = 
+\backslash
+big
+\backslash
+{ v
+\backslash
+in H (
+\backslash
+dvr;
+\backslash
+Omega,
+\backslash
+R^d) : v
+\backslash
+cdot n = 0 
+\backslash
+text{ on } 
+\backslash
+Gn^{vel}  
+\backslash
+big
+\backslash
+}, 
+\backslash
+quad W = L^2 (
+\backslash
+Omega).
+ 	
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+ It was indeed shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lee2016robust"
+
+\end_inset
+
+ that the coupled system   (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cts1"
+
+\end_inset
+
+)
+\begin_inset Formula $\--$
+\end_inset
+
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cts5"
+
+\end_inset
+
+) is well posed.
+ As in the finite element literature, we proceed by converting the system
+ into a finite dimensional problem which can be solve using a linear solver
+ numerically.
+ 
+\end_layout
+
+\begin_layout Standard
+In the finite dimensional setting using finite element spaces, the variational
+ formulation corresponding to  (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cts1"
+
+\end_inset
+
+)
+\begin_inset Formula $\--$
+\end_inset
+
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cts5"
+
+\end_inset
+
+) reads as follows: find 
+\begin_inset Formula $\ensuremath{(\sigma_{h},u_{h},\gamma_{h},z_{h},p_{h})}\in\X_{h}\times V_{h}\times\W_{h}\times Z_{h}\times W_{h}$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\begin{align}
+ & \inp[A\sigma_{h}]{\tau}+\inp[A\a p_{h}I]{\tau}+\inp[u_{h}]{\dvr{\tau}}+\inp[\gamma_{h}]{\tau}=\gnp[g_{u}]{\t\,n}_{\Gamma_{D}^{displ}}, & \forall\tau\in\X_{h},\label{eq:fe1}\\
+ & \inp[\dvr{\sigma_{h}}]{v}=-\inp[f]{v}, & \forall v\in V_{h},\label{eq:fe2}\\
+ & \inp[\sigma_{h}]{\xi}=0, & \forall\xi\in\W_{h},\label{eq:fe3}\\
+ & \inp[\K z_{h}]{q}-\inp[p_{h}]{\dvr{q}}=-\gnp[g_{p}]{v\cdot n}_{\Gamma_{D}^{pres}}, & \forall q\in Z_{h},\label{eq:fe4}\\
+ & c_{0}\inp[\pdrv{p_{h}}]{w}+\a\inp[\ddt A\sigma_{h}]{wI}+\a\inp[\ddt\tr(A\a p_{h}I)]{w}+\inp[\dvr{z_{h}}]{w}=\inp[g]{w}, & \forall w\in W_{h},\label{eq:fe5}
+\end{align}
+
+\end_inset
+
+where 
+\begin_inset Formula $\X_{h}\times V_{h}\times\W_{h}\times Z_{h}\times W_{h}\subset\X\times V\times\W\times Z\times W$
+\end_inset
+
+ is a collection of FE spaces which are inf-sup stable.
+ 
+\end_layout
+
+\begin_layout Standard
+For solving the mechanics part, 
+\begin_inset Formula $\X_{h}\times V_{h}\times\W_{h}$
+\end_inset
+
+ could be one chosen from any of the stable triplets suitable for solving
+ linear elasticity problem equations with weakly imposed symmetry.
+ Examples of such triplets include Stenberg 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stenberg1988family"
+
+\end_inset
+
+, Amara-Thomas 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Amara-Thomas"
+
+\end_inset
+
+, Arnold-Falk-Winther 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ArnAwaQiu,arnold2007mixed,Awanou-rect-weak"
+
+\end_inset
+
+ and Cockburn-Gopalakrishnan-Guzman 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cockburn2010new,gopalakrishnan2012second"
+
+\end_inset
+
+ family of elements.
+ In particular, as shown in (citation), these families satisfies the inf-sup
+ condition,
+\end_layout
+
+\begin_layout Standard
+for any 
+\begin_inset Formula $\left(u_{h},\gamma_{h}\right)\in V_{h}\times\W_{h}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align}
+\|u_{h}\|+\|\gamma_{h}\| & \le C\sup_{0\ne\tau\in\mathbb{X}_{h}}\frac{\inp[u_{h}]{\dvr{\tau}}+\inp[\gamma_{h}]{\tau}}{\|\tau\|_{H(\text{div};\Omega,\mathbb{M})}}\label{eq:inf-sup-elast}
+\end{align}
+
+\end_inset
+
+ For the flow part, 
+\begin_inset Formula $Z_{h}\times W_{h}$
+\end_inset
+
+ could be chosen from any of the stable pressure-velocity pair of MFE spaces
+ like Raviart-Thomas or Brezzi-Douglas-Marini (
+\begin_inset Formula $\mathcal{BDM}$
+\end_inset
+
+) spaces .
+ These families are presented in detail in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "brezzi1991mixed"
+
+\end_inset
+
+ where its shown that they satisfy the following inf-sup condition, 
+\end_layout
+
+\begin_layout Standard
+for any 
+\begin_inset Formula $w_{h}\in W_{h}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align}
+||\ps(\lambda_{h})||_{\Omega_{i}} & \le C\sup_{0\ne q_{h}\in Z_{h}}\frac{\langle\nabla\cdot q_{h},w_{h}\rangle}{||q_{h}||_{H\text{(div,\ensuremath{\Omega})}}}\label{eq:inf-sup-darcy}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Formulation of monolithic MMMFE method using non-matching grids.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega=\cup_{i=1}^{n}\Omega_{i}$
+\end_inset
+
+ be a union of non-overlapping shape regular polygonal subdomains.
+ Let 
+\begin_inset Formula $\G_{i,j}=\dO_{i}\cap\dO_{j},\,\G=\cup_{i,j=1}^{n}\G_{i,j},$
+\end_inset
+
+ and 
+\begin_inset Formula $\G_{i}=\dO_{i}\cap\G=\dO_{i}\setminus\dO$
+\end_inset
+
+ denote the interior subdomain interfaces.
+ The domain discretization technique we develop here is generalization of
+ the techniques derived in [give reference to the other paper] to a general
+ case where the sub-domains have non-matching grids with different scales
+ of refinement.
+ We make use of relatively coarser mortar finite elements of our choice
+ satisfying certain conditions at the interface of the sub-domains.
+ Let 
+\begin_inset Formula $h_{i}$
+\end_inset
+
+ be the diameter of maximal element in the mesh on 
+\begin_inset Formula $\Omega_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $h=\max_{i}h_{i}$
+\end_inset
+
+.
+  
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+Talk about the computationally cheap and non-matching grid advantages this
+ method has over the previous paper in the introduction.
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+, let 
+\begin_inset Formula $\mathbb{X}_{h,i}\times V_{h,i}\times\mathbb{W}_{h,i}\times Z_{h,i}\times W_{h,i}$
+\end_inset
+
+ be a collection of MFE families defined on the subdomain 
+\begin_inset Formula $\Omega_{i}.$
+\end_inset
+
+ We assume that 
+\begin_inset Formula $\mathbb{X}_{h,i},V_{h,i},\W_{h,i},Z_{h,i}$
+\end_inset
+
+ and 
+\begin_inset Formula $W$
+\end_inset
+
+ contain polynomials of degree less than or equal to 
+\begin_inset Formula $k\ge1,l\ge0,q\ge0,r\ge1$
+\end_inset
+
+ and 
+\begin_inset Formula $s\ge0$
+\end_inset
+
+ respectively.
+ Let us define global spaces as follows: 
+\begin_inset Formula 
+\[
+\mathbb{X}_{h}=\bigoplus_{1\le i\le n}\mathbb{X}_{h,i},\quad V_{h}=\bigoplus_{1\le i\le n}V_{h,i},\quad\mathbb{W}_{h,i}=\bigoplus_{1\le i\le n}\mathbb{W}_{h,i}\quad Z_{h}=\bigoplus_{1\le i\le n}Z_{h,i},\quad W_{h}=\bigoplus_{1\le i\le n}W_{h,i}.
+\]
+
+\end_inset
+
+Note that the definition of the global spaces 
+\begin_inset Formula $\mathbb{X}_{h}$
+\end_inset
+
+ and 
+\begin_inset Formula $Z_{h}$
+\end_inset
+
+ do not impose continuity of normal components of stress or velocity across
+ the sub-domain interfaces.
+ This issue is taken care of using Lagrange multipliers defined on compatible
+ mortar spaces on the interface.
+ Let 
+\begin_inset Formula $\Tc{}_{h,i,j}$
+\end_inset
+
+ be a shape regular quasi-uniform finite element partition of 
+\begin_inset Formula $\Gamma_{i,j}$
+\end_inset
+
+ constructed using a simplical or quadrilateral mesh in dimension 
+\begin_inset Formula $d-1$
+\end_inset
+
+ with maximal element diameter 
+\begin_inset Formula $H.$
+\end_inset
+
+ Define the global mortar fine element space on the union of sub-domain
+ interfaces,
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ to be, 
+\begin_inset Formula 
+\[
+\Lambda_{H}=\bigoplus_{1\le i\le n}\begin{pmatrix}\Lambda_{H,i,j}^{u}\\
+\Lambda_{H,i,j}^{p}
+\end{pmatrix},
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\Lambda_{H,i,j}^{u}\subset\left(L^{2}(\Gamma_{i,j})\right)^{d}$
+\end_inset
+
+ and 
+\begin_inset Formula $\Lambda_{H,i,j}^{p}\subset L^{2}(\Gamma_{i,j})$
+\end_inset
+
+ are mortar finite element spaces on 
+\begin_inset Formula $\Gamma_{i,j}$
+\end_inset
+
+ representing the displacement and pressure Lagrange multipliers respectively.
+ Aforementioned mortar spaces contain either continuous or discontinuous
+ polynomials of degree degree up to 
+\begin_inset Formula $m\ge0$
+\end_inset
+
+.
+ Conditions on the compatibility of the degrees and richness of the mortar
+ spaces to have a well-posed and stable method will be discussed in the
+ later sections.
+ 
+\end_layout
+
+\begin_layout Standard
+The MFE problem in the mortar DD setting give rise to a Dirichlet type sub-domai
+n problem as follows: for 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+, find 
+\begin_inset Formula $(\sigma_{h,i},u_{h,i},\g_{h,i},z_{h,i},p_{h,i},\lambda_{H})\in\X_{h,i}\times V_{h,i}\times\W_{h,i}\times Z_{h,i}\times W_{h,i}\times\Lambda_{H}$
+\end_inset
+
+ such that: 
+\size small
+
+\begin_inset Formula 
+\begin{align}
+ & \inp[A\left(\sigma_{h,i}+\a p_{h,i}I\right)]{\tau}_{\O_{i}}+\inp[u_{h,i}]{\dvr{\tau}}_{\O_{i}}+\inp[\gamma_{h,i}]{\tau}_{\O_{i}}\nonumber \\
+ & \hspace{20em}=\gnp[g_{u}]{\t\,n}_{\dO\cap\Gd^{displ}}+\gnp[\lambda_{h}^{u}]{\t\,n}_{\Gamma_{i}}, &  & \forall\tau\in\X_{h,i},\label{eq:monodd-mmmfe1}\\
+ & \inp[\dvr{\sigma_{h,i}}]{v}_{\O_{i}}=-\inp[f]{v}_{\O_{i}}, &  & \forall v\in V_{h,i},\label{eq:monodd-mmmfe2}\\
+ & \inp[\sigma_{h,i}]{\xi}_{\O_{i}}=0, &  & \forall\xi\in\W_{h,i},\label{eq:monodd-mmmfe3}\\
+ & \inp[\K z_{h,i}]{q}_{\O_{i}}-\inp[p_{h,i}]{\dvr{q}}_{\O_{i}}=-\gnp[g_{p}]{v\cdot n}_{\dO\cap\Gd^{pres}}-\gnp[\lambda_{h}^{p}]{q\cdot n}_{\Gamma_{i}}, &  & \forall q\in Z_{h,i},\label{eq:monodd-mmmfe4}\\
+ & c_{0}\inp[\pdrv{p_{h,i}}]{w}_{\O_{i}}+\a\inp[\ddt A\left(\sigma_{h,i}+\a p_{h,i}I\right)]{wI}_{\O_{i}}+\inp[\dvr{z_{h,i}}]{w}_{\O_{i}}\nonumber \\
+ & \hspace{20em}=\inp[g]{w}_{\O_{i}}, &  & \forall w\in W_{h,i},\label{eq:monodd-mmmfe5}\\
+ & \sum_{i=1}^{n}\gnp[\sigma_{h,i}\,n_{i}]{\mu^{u}}_{\G_{i}}=0, &  & \forall\mu^{u}\in\Lambda_{H}^{u},\label{eq:monodd-mmmfe6}\\
+ & \sum_{i=1}^{n}\gnp[z_{h,i}\cdot n_{i}]{\mu^{p}}_{\G_{i}}=0, &  & \forall\mu^{p}\in\Lambda_{H}^{p},\label{eq:monodd-mmmfe7}
+\end{align}
+
+\end_inset
+
+ where 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ is the outward unit normal vector field on 
+\begin_inset Formula $\O_{i}$
+\end_inset
+
+.
+ Note that equations (
+\size default
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:monodd-mmmfe6"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:monodd-mmmfe7"
+
+\end_inset
+
+
+\size small
+) enforces a notion of weak continuity of 
+\size default
+normal components of stress tensor and velocity vector across the sub-domain
+ interfaces
+\size small
+ 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For each subdomain 
+\begin_inset Formula $\Omega_{i},$
+\end_inset
+
+we define a projection operators 
+\begin_inset Formula $\mathcal{Q}_{h,i}^{u}:\left(L^{2}(\Gamma_{i})\right)^{d}\to\X_{h,i}n_{i}|_{\Gamma_{i}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{Q}_{h,i}^{p}:L^{2}(\Gamma_{i})\to V_{h,i}\cdot n_{i}|_{\Gamma_{i}}$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $\left(\phi_{u},\phi_{p}\right)\in\left(L^{2}(\Gamma_{i})\right)^{d}\times L^{2}(\Gamma_{i})$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \left\langle \phi_{u}-\mathcal{Q}_{h,i}^{u}\phi_{u},\tau n\right\rangle =0, & \forall\tau\in\X_{h,i},\\
+ & \left\langle \phi_{p}-\mathcal{Q}_{h,i}^{p}\phi_{p},v\cdot n\right\rangle =0 & \forall v\in V_{h,i}.
+\end{align*}
+
+\end_inset
+
+And finally we define 
+\begin_inset Formula $\mathcal{Q}_{h,i}:\left(L^{2}(\Gamma_{i})\right)^{d}\times L^{2}(\Gamma_{i})\to\X_{h,i}n_{i}|_{\Gamma_{i}}\times V_{h,i}\cdot n_{i}|_{\Gamma_{i}}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{Q}_{h,i}=\begin{pmatrix}\mathcal{Q}_{h,i}^{u}\\
+\mathcal{Q}_{h,i}^{p}
+\end{pmatrix}.\label{eq:MrtToTraceProj}
+\end{equation}
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Spaces of weakly continuous stress and velocity.
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Spaces-of-weakly"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section, we introduce spaces of weakly continuous stress tensors
+ and velocity vectors as follows:
+\begin_inset Formula 
+\[
+\X_{h,0}=\left\{ \tau\in\X_{h}:\sum_{i=1}^{n}\inp[\tau n_{i}]{\mu^{u}}_{\G_{i}}=0\,\,\,\forall\mu^{u}\in\Lambda_{H}\right\} 
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\[
+Z_{h,0}=\left\{ q\in Z_{h}:\sum_{i=1}^{n}\inp[q\cdot n_{i}]{\mu^{p}}_{\G_{i}}=0\,\,\,\forall\mu^{p}\in\Lambda_{H}\right\} .
+\]
+
+\end_inset
+
+In order to analyze the system 
+\size small
+(
+\size default
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:monodd-mmmfe1"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:monodd-mmmfe7"
+
+\end_inset
+
+
+\size small
+) using techniques developed for single domain system (
+\size default
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fe1"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fe5"
+
+\end_inset
+
+
+\size small
+) in 
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+
+\size small
+[give reference fo Ilona's and other relevant publications.]
+\end_layout
+
+\end_inset
+
+, we restate the DD subdomain problems using the weakly continuous spaces
+ 
+\begin_inset Formula $\X_{h,0}$
+\end_inset
+
+ and 
+\begin_inset Formula $Z_{h,0}$
+\end_inset
+
+ as follows: 
+\size default
+find 
+\begin_inset Formula $\ensuremath{(\sigma_{h},u_{h},\gamma_{h},z_{h},p_{h})}\in\X_{h,0}\times V_{h}\times\W_{h}\times Z_{h,0}\times W_{h}$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\begin{align}
+ & \inp[A\left(\sigma_{h}+\a p_{h}I\right)]{\tau}_{\Omega}+\inp[A]{\tau}_{\Omega}+\sum_{i=1}^{n}\inp[u_{h}]{\dvr{\tau}}_{\Omega_{i}}+\inp[\gamma_{h}]{\tau}_{\Omega}=\gnp[g_{u}]{\t\,n}_{\Gamma_{D}^{displ}}, & \forall\tau\in\X_{h,0},\label{eq:fe-mono-weak-1}\\
+ & \sum_{i=1}^{n}\inp[\dvr{\sigma_{h}}]{v}_{\Omega_{i}}=-\inp[f]{v}{}_{\Omega}, & \forall v\in V_{h},\label{eq:fe-mono-weak-2}\\
+ & \inp[\sigma_{h}]{\xi}_{\Omega}=0, & \forall\xi\in\W_{h},\label{eq:fe-mono-weak-3}\\
+ & \inp[\K z_{h}]{q}_{\Omega}-\sum_{i=1}^{n}\inp[p_{h}]{\dvr{q}}_{\Omega_{i}}=-\gnp[g_{p}]{v\cdot n}_{\Gamma_{D}^{pres}}, & \forall q\in Z_{h,0},\label{eq:fe-mono-weak-4}\\
+ & c_{0}\inp[\pdrv{p_{h}}]{w}_{\Omega}+\a\inp[\ddt A\left(\sigma_{h}+\a p_{h}I\right)]{wI}_{\Omega}+\sum_{i=1}^{n}\inp[\dvr{z_{h}}]{w}{}_{\Omega_{i}}=\inp[g]{w}_{\Omega}, & \forall w\in W_{h}.\label{eq:fe-mono-weak-5}
+\end{align}
+
+\end_inset
+
+Note that we use the above formulation only for the sake of analysis and
+ will present a reduction to interface problem approach to design the numerical
+ algorithm.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Analysis of MMMFE for the monolithic system.
+\end_layout
+
+\begin_layout Subsection
+Well-posedness and stability analysis.
+\end_layout
+
+\begin_layout Standard
+In this subsection, we show that the system (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fe-mono-weak-1"
+
+\end_inset
+
+)–(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fe-mono-weak-5"
+
+\end_inset
+
+) is well-posed and stable under the following assumption: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{assump} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+The mortar space 
+\begin_inset Formula $\Lambda_{H}$
+\end_inset
+
+ is chosen so that there exists a constant 
+\begin_inset Formula $C$
+\end_inset
+
+ independent of 
+\begin_inset Formula $H$
+\end_inset
+
+ and 
+\begin_inset Formula $h$
+\end_inset
+
+ such that the following inequality holds,
+\begin_inset Formula 
+\begin{equation}
+\|\mu\|_{\Gamma_{i,j}}\le C\left(\|\mathcal{Q}_{h,i}\mu\|_{\Gamma_{i,j}}+\|\mathcal{Q}_{h,j}\mu\|_{\Gamma_{i,j}}\right),\quad\forall\mu\in\Lambda_{H},\quad1\le i<j\le n.\label{eq:mortar_assumption}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{assump}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+Note that assumption (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:mortar_assumption"
+
+\end_inset
+
+) implies that the space 
+\begin_inset Formula $\Lambda_{H}$
+\end_inset
+
+ cannot be too rich compared to subdomain stress-velocity FE spaces(similar
+ approach to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ArbogastPencheva1"
+
+\end_inset
+
+) and this in turn make sure that 
+\begin_inset Formula $\Lambda_{H}^{u}$
+\end_inset
+
+ and 
+\begin_inset Formula $\Lambda_{H}^{p}$
+\end_inset
+
+ are well controlled by their projection on to the normal traces of velocity
+ and stress sub-domain spaces respectively.
+ In practice, this condition can be easily obtained by taking a coarser
+ mortar mesh satisfying 
+\begin_inset Formula $h<H\le1$
+\end_inset
+
+(see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ArbogastPencheva1,arbogast2000mixed,pencheva2003balancing"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Under the assumption (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:mortar_assumption"
+
+\end_inset
+
+), we present a inf-sup stability of the form (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:inf-sup-darcy"
+
+\end_inset
+
+) and (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:inf-sup-elast"
+
+\end_inset
+
+) with respect to the newly defined weakly continuous velocity and stress
+ tensor function as in sub-section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Spaces-of-weakly"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:operator_elast"
+
+\end_inset
+
+Under assumption (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:mortar_assumption"
+
+\end_inset
+
+), there exists a linear operator 
+\begin_inset Formula $\Pi_{0}^{E}:H^{\frac{1}{2}+\epsilon}(\Omega,\mathbb{M})\cap\X\to\X_{h,0}$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $\tau\in H^{\frac{1}{2}+\epsilon}(\Omega,\mathbb{M})\cap\X$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{align*}
+ & \sum_{i=1}^{n}\left(\text{div}\left(\Pi_{0}^{E}\tau-\tau\right),v\right)_{\Omega_{i}}=0, & \forall v\in V_{h,i},\\
+ & \left(\Pi_{0}^{E}\tau-\tau,\xi\right)=0, & \forall\xi\in\W_{h},\\
+ & \|\Pi_{0}^{E}\tau\|\le C\left(\|\tau\|_{\frac{1}{2}+\epsilon}+\|\text{div}\tau\|\right).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The proof depends on the construction of a correction term to force the
+ solutions to (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:monodd-mmmfe1"
+
+\end_inset
+
+)–(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:monodd-mmmfe5"
+
+\end_inset
+
+) to be in the weakly continuous spaces and also making use of (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:inf-sup-elast"
+
+\end_inset
+
+) for each sub-domain 
+\begin_inset Formula $\Omega_{i}.$
+\end_inset
+
+ Complete proof is given in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Lemma 3.4"
+key "eldar_elastdd"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:operator_darcy"
+
+\end_inset
+
+Under assumption (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:mortar_assumption"
+
+\end_inset
+
+), there exists a linear operator 
+\begin_inset Formula $\Pi_{0}^{D}:H_{0}^{1}\left(\Omega\right)^{n}\to Z_{h,0}$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $\forall q\in Z_{h,0},$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \left(\text{div}\left(\Pi_{0}^{D}q-q\right),w\right)_{\Omega_{i}}=0, & \forall w\in W_{h},\\
+ & \|\Pi_{0}^{D}q\|_{\X}\le C|q|_{H^{1}(\Omega)}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+This Lemma is proved similar to Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:operator_elast"
+
+\end_inset
+
+.
+ Details can be found in the proof of 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Lemma 3.6"
+key "GiraultVivetteYotov1"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:operator_elast"
+
+\end_inset
+
+ and Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:operator_darcy"
+
+\end_inset
+
+ along with a simple variant of Fortin's Lemma
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+give reference here
+\end_layout
+
+\end_inset
+
+ gives the following theorem (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Theorem 3.1"
+key "GiraultVivetteYotov1"
+
+\end_inset
+
+ for details).
+\end_layout
+
+\begin_layout Theorem
+Under assumption (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:mortar_assumption"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "Manu_biot_dd"
+options "bibtotoc,abbrv"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
