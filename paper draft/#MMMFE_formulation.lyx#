@@ -904,7 +904,7 @@ for any
 ,
 \begin_inset Formula 
 \begin{align}
-\|u_{h}\|+\|\gamma_{h}\| & \le C\sup_{0\ne\tau\in\mathbb{X}_{h}}\frac{\inp[u_{h}]{\dvr{\tau}}+\inp[\gamma_{h}]{\tau}}{\|\tau\|_{H(\text{div};\Omega,\mathbb{M})}}.\label{eq:inf-sup-elast}
+\|u_{h}\|+\|\gamma_{h}\| & \le C\sup_{0\ne\tau\in\mathbb{X}_{h}}\frac{\inp[u_{h}]{\dvr{\tau}}+\inp[\gamma_{h}]{\tau}}{\|\tau\|_{H(\text{div};\Omega,\mathbb{M})}}\label{eq:inf-sup-elast}
 \end{align}
 
 \end_inset
@@ -937,7 +937,7 @@ for any
 ,
 \begin_inset Formula 
 \begin{align}
-||\ps(\lambda_{h})||_{\Omega_{i}} & \le C\sup_{0\ne q_{h}\in Z_{h}}\frac{\left(\nabla\cdot q_{h},w_{h}\right)}{||q_{h}||_{H\text{(div,\ensuremath{\Omega})}}}.\label{eq:inf-sup-darcy}
+||\ps(\lambda_{h})||_{\Omega_{i}} & \le C\sup_{0\ne q_{h}\in Z_{h}}\frac{\langle\nabla\cdot q_{h},w_{h}\rangle}{||q_{h}||_{H\text{(div,\ensuremath{\Omega})}}}\label{eq:inf-sup-darcy}
 \end{align}
 
 \end_inset
@@ -1663,9 +1663,7 @@ key "GiraultVivetteYotov1"
 
 \end_inset
 
- for details) which gives inf-sup stability bounds with respect to the weakly
- continuous spaces of stress and velocity.
- 
+ for details).
 \end_layout
 
 \begin_layout Theorem
@@ -1676,55 +1674,7 @@ reference "eq:mortar_assumption"
 
 \end_inset
 
-), there exists positive constants 
-\begin_inset Formula $C_{E}$
-\end_inset
-
- and 
-\begin_inset Formula $C_{D}$
-\end_inset
-
- independent of the discretization parameters 
-\begin_inset Formula $h$
-\end_inset
-
- and 
-\begin_inset Formula $H$
-\end_inset
-
- such that 
-\end_layout
-
-\begin_layout Standard
-for any 
-\begin_inset Formula $\left(u_{h},\gamma_{h}\right)\in V_{h}\times\W_{h}$
-\end_inset
-
-,
-\begin_inset Formula 
-\begin{align}
-\|u_{h}\|+\|\gamma_{h}\| & \le C_{D}\sup_{0\ne\tau\in\mathbb{X}_{h,0}}\frac{\inp[u_{h}]{\dvr{\tau}}+\inp[\gamma_{h}]{\tau}}{\|\tau\|_{H(\text{div};\Omega,\mathbb{M})}},\label{eq:inf-sup-elast-weak}
-\end{align}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-and for any 
-\begin_inset Formula $w_{h}\in W_{h}$
-\end_inset
-
-,
-\begin_inset Formula 
-\begin{align}
-||\ps(\lambda_{h})||_{\Omega_{i}} & \le C\sup_{0\ne q_{h}\in Z_{h,0}}\frac{\left(\nabla\cdot q_{h},w_{h}\right)}{||q_{h}||_{H\text{(div,\ensuremath{\Omega})}}}.\label{eq:inf-sup-darcy-weak}
-\end{align}
-
-\end_inset
-
-
+)
 \end_layout
 
 \begin_layout Standard
