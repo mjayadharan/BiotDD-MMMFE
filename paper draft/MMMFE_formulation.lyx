@@ -683,11 +683,11 @@ reference "biot-bc-2"
  such that
 \begin_inset Formula 
 \begin{align}
- & \inp[A\sigma]{\tau}+\inp[A\a pI]{\tau}+\inp[u]{\dvr{\tau}}+\inp[\gamma]{\tau}=\gnp[g_{u}]{\t\,n}_{\Gamma_{D}^{displ}}, & \forall\tau\in\X,\label{eq:cts1}\\
+ & \inp[A\left(\sigma+\a pI\right)]{\tau}_{\Omega}+\inp[u]{\dvr{\tau}}+\inp[\gamma]{\tau}=\gnp[g_{u}]{\t\,n}_{\Gamma_{D}^{displ}}, & \forall\tau\in\X,\label{eq:cts1}\\
  & \inp[\dvr{\sigma}]{v}=-\inp[f]{v}, & \forall v\in V,\label{eq:cts2}\\
  & \inp[\sigma]{\xi}=0, & \forall\xi\in\W,\label{eq:cts3}\\
  & \inp[\K z]{q}-\inp[p]{\dvr{q}}=-\gnp[g_{p}]{v\cdot n}_{\Gamma_{D}^{pres}}, & \forall q\in Z,\label{eq:cts4}\\
- & c_{0}\inp[\pdrv{p}]{w}+\a\inp[\ddt A\sigma]{wI}+\a\inp[\ddt\tr(A\a pI)]{w}+\inp[\dvr{z}]{w}=\inp[g]{w}, & \forall w\in W,\label{eq:cts5}
+ & c_{0}\inp[\pdrv{p}]{w}+\a\inp[\ddt A\left(\sigma+\a pI\right)]{wI}_{\Omega}+\inp[\dvr{z}]{w}=\inp[g]{w}, & \forall w\in W,\label{eq:cts5}
 \end{align}
 
 \end_inset
@@ -839,11 +839,11 @@ reference "eq:cts5"
  such that
 \begin_inset Formula 
 \begin{align}
- & \inp[A\sigma_{h}]{\tau}+\inp[A\a p_{h}I]{\tau}+\inp[u_{h}]{\dvr{\tau}}+\inp[\gamma_{h}]{\tau}=\gnp[g_{u}]{\t\,n}_{\Gamma_{D}^{displ}}, & \forall\tau\in\X_{h},\label{eq:fe1}\\
+ & \inp[A\left(\sigma_{h}+\a p_{h}I\right)]{\tau}_{\Omega}+\inp[u_{h}]{\dvr{\tau}}+\inp[\gamma_{h}]{\tau}=\gnp[g_{u}]{\t\,n}_{\Gamma_{D}^{displ}}, & \forall\tau\in\X_{h},\label{eq:fe1}\\
  & \inp[\dvr{\sigma_{h}}]{v}=-\inp[f]{v}, & \forall v\in V_{h},\label{eq:fe2}\\
  & \inp[\sigma_{h}]{\xi}=0, & \forall\xi\in\W_{h},\label{eq:fe3}\\
  & \inp[\K z_{h}]{q}-\inp[p_{h}]{\dvr{q}}=-\gnp[g_{p}]{v\cdot n}_{\Gamma_{D}^{pres}}, & \forall q\in Z_{h},\label{eq:fe4}\\
- & c_{0}\inp[\pdrv{p_{h}}]{w}+\a\inp[\ddt A\sigma_{h}]{wI}+\a\inp[\ddt\tr(A\a p_{h}I)]{w}+\inp[\dvr{z_{h}}]{w}=\inp[g]{w}, & \forall w\in W_{h},\label{eq:fe5}
+ & c_{0}\inp[\pdrv{p_{h}}]{w}+\a\inp[\ddt A\left(\sigma_{h}+\a p_{h}I\right)]{wI}_{\Omega}+\inp[\dvr{z_{h}}]{w}=\inp[g]{w}, & \forall w\in W_{h},\label{eq:fe5}
 \end{align}
 
 \end_inset
@@ -1295,8 +1295,11 @@ status open
 
 \end_inset
 
-, we restate the DD subdomain problems using the weakly continuous spaces
- 
+, we assume that 
+\begin_inset Formula $\Gamma_{D}^{displ}=\Gamma_{D}^{pres}=\dO$
+\end_inset
+
+ restate the DD subdomain problems using the weakly continuous spaces 
 \begin_inset Formula $\X_{h,0}$
 \end_inset
 
@@ -1313,10 +1316,10 @@ find
  such that
 \begin_inset Formula 
 \begin{align}
- & \inp[A\left(\sigma_{h}+\a p_{h}I\right)]{\tau}_{\Omega}+\inp[A]{\tau}_{\Omega}+\sum_{i=1}^{n}\inp[u_{h}]{\dvr{\tau}}_{\Omega_{i}}+\inp[\gamma_{h}]{\tau}_{\Omega}=\gnp[g_{u}]{\t\,n}_{\Gamma_{D}^{displ}}, & \forall\tau\in\X_{h,0},\label{eq:fe-mono-weak-1}\\
+ & \inp[A\left(\sigma_{h}+\a p_{h}I\right)]{\tau}_{\Omega}+\inp[A]{\tau}_{\Omega}+\sum_{i=1}^{n}\inp[u_{h}]{\dvr{\tau}}_{\Omega_{i}}+\inp[\gamma_{h}]{\tau}_{\Omega}=\gnp[g_{u}]{\t\,n}_{\dO}, & \forall\tau\in\X_{h,0},\label{eq:fe-mono-weak-1}\\
  & \sum_{i=1}^{n}\inp[\dvr{\sigma_{h}}]{v}_{\Omega_{i}}=-\inp[f]{v}{}_{\Omega}, & \forall v\in V_{h},\label{eq:fe-mono-weak-2}\\
  & \inp[\sigma_{h}]{\xi}_{\Omega}=0, & \forall\xi\in\W_{h},\label{eq:fe-mono-weak-3}\\
- & \inp[\K z_{h}]{q}_{\Omega}-\sum_{i=1}^{n}\inp[p_{h}]{\dvr{q}}_{\Omega_{i}}=-\gnp[g_{p}]{v\cdot n}_{\Gamma_{D}^{pres}}, & \forall q\in Z_{h,0},\label{eq:fe-mono-weak-4}\\
+ & \inp[\K z_{h}]{q}_{\Omega}-\sum_{i=1}^{n}\inp[p_{h}]{\dvr{q}}_{\Omega_{i}}=-\gnp[g_{p}]{v\cdot n}_{\dO}, & \forall q\in Z_{h,0},\label{eq:fe-mono-weak-4}\\
  & c_{0}\inp[\pdrv{p_{h}}]{w}_{\Omega}+\a\inp[\ddt A\left(\sigma_{h}+\a p_{h}I\right)]{wI}_{\Omega}+\sum_{i=1}^{n}\inp[\dvr{z_{h}}]{w}{}_{\Omega_{i}}=\inp[g]{w}_{\Omega}, & \forall w\in W_{h}.\label{eq:fe-mono-weak-5}
 \end{align}
 
@@ -1645,13 +1648,10 @@ reference "lem:operator_darcy"
 
 \end_inset
 
- along with a simple variant of Fortin's Lemma
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-give reference here
-\end_layout
+ along with a simple variant of Fortin's Lemma 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "girault1986finite,brezzi1991mixed"
 
 \end_inset
 
@@ -1703,7 +1703,7 @@ for any
 ,
 \begin_inset Formula 
 \begin{align}
-\|u_{h}\|+\|\gamma_{h}\| & \le C_{D}\sup_{0\ne\tau\in\mathbb{X}_{h,0}}\frac{\inp[u_{h}]{\dvr{\tau}}+\inp[\gamma_{h}]{\tau}}{\|\tau\|_{H(\text{div};\Omega,\mathbb{M})}},\label{eq:inf-sup-elast-weak}
+\|u_{h}\|+\|\gamma_{h}\| & \le C_{E}\sup_{0\ne\tau\in\mathbb{X}_{h,0}}\frac{\sum_{i=1}^{n}\inp[u_{h}]{\dvr{\tau}}_{\Omega_{i}}+\inp[\gamma_{h}]{\tau}_{\Omega}}{\|\tau\|_{H(\text{div};\Omega,\mathbb{M})}},\label{eq:inf-sup-elast-weak}
 \end{align}
 
 \end_inset
@@ -1719,8 +1719,74 @@ and for any
 ,
 \begin_inset Formula 
 \begin{align}
-||\ps(\lambda_{h})||_{\Omega_{i}} & \le C\sup_{0\ne q_{h}\in Z_{h,0}}\frac{\left(\nabla\cdot q_{h},w_{h}\right)}{||q_{h}||_{H\text{(div,\ensuremath{\Omega})}}}.\label{eq:inf-sup-darcy-weak}
+||\ps(\lambda_{h})||_{\Omega_{i}} & \le C_{D}\sup_{0\ne q_{h}\in Z_{h,0}}\frac{\sum_{i=1}^{n}\left(\nabla\cdot q_{h},w_{h}\right)_{\Omega_{i}}}{||q_{h}||_{H\text{(div,\ensuremath{\Omega})}}}.\label{eq:inf-sup-darcy-weak}
 \end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using stability analysis similar to that in 
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+give reference to theorem and section in Ilona's paper
+\end_layout
+
+\end_inset
+
+ and inf-sup stability bounds (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:inf-sup-elast-weak"
+
+\end_inset
+
+) and (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:inf-sup-darcy-weak"
+
+\end_inset
+
+) for the modified stress and velocity spaces, we obtain the following stability
+ bound for monolithic MMMFE method.
+\end_layout
+
+\begin_layout Theorem
+Let 
+\begin_inset Formula $\ensuremath{(\sigma_{h}(t),u_{h}(t),\gamma_{h}(t),z_{h}(t),p_{h}(t))}\in\X_{h,0}\times V_{h}\times\W_{h}\times Z_{h,0}\times W_{h}$
+\end_inset
+
+ be the solution to the system of equations (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fe-mono-weak-1"
+
+\end_inset
+
+)–(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fe-mono-weak-5"
+
+\end_inset
+
+) for 
+\begin_inset Formula $t\in[0,T]$
+\end_inset
+
+, then the following stability bound holds:
+\begin_inset Formula 
+\begin{align*}
+ & \sum_{i=1}^{n}\|\sigma_{h}\|_{L^{\infty}\left(0,T;H\left(div,\Omega_{i}\right)\right)}+\|u_{h}\|_{L^{\infty}\left(0,T;L^{2}\left(\Omega\right)\right)}+\|\gamma_{h}\|_{L^{\infty}\left(0,T;L^{2}\left(\Omega\right)\right)}+\|z_{h}\|_{L^{\infty}\left(0,T;L^{2}\left(\Omega\right)\right)}+\|p_{h}\|_{L^{\infty}\left(0,T;L^{2}\left(\Omega\right)\right)}\\
+ & +\sum_{i=1}^{n}\|\sigma_{h}\|_{L^{2}\left(0,T;H\left(div,\Omega_{i}\right)\right)}+\|u_{h}\|_{L^{2}\left(0,T;L^{2}\left(\Omega\right)\right)}+\|\gamma_{h}\|_{L^{2}\left(0,T;L^{2}\left(\Omega\right)\right)}+\|z_{h}\|_{L^{2}\left(0,T;L^{2}\left(\Omega\right)\right)}+\|p_{h}\|_{L^{2}\left(0,T;L^{2}\left(\Omega\right)\right)}\\
+ & \le C[\|\sigma_{h}(0)\|+\|u_{h}(0)\|+\|z_{h}(0)\|+\|p_{h}(0)\|+\|f\|_{L^{\infty}\left(0,T;L^{2}\left(\Omega\right)\right)}+\|f\|_{H^{1}\left(0,T;L^{2}\left(\Omega\right)\right)}+\|g\|_{H^{1}\left(0,T;L^{2}\left(\Omega\right)\right)}\\
+ & +\|g\|_{L^{\infty}\left(0,T;L^{2}\left(\Omega\right)\right)}+\|g_{u}\|_{H^{1}(0,T;H^{\frac{1}{2}}\left(\dO\right))}+\|g_{u}\|_{L^{\infty}(0,T;H^{\frac{1}{2}}\left(\dO\right))}+\|g_{p}\|_{H^{1}(0,T;H^{\frac{1}{2}}\left(\dO\right))}].
+\end{align*}
 
 \end_inset
 
